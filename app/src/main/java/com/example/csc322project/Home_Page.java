@@ -10,7 +10,7 @@ import android.widget.Spinner;
 
 public class Home_Page extends AppCompatActivity {
     Spinner spinner;
-    @Override
+    @Override 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home__page);
