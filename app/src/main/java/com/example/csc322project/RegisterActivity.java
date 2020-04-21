@@ -40,10 +40,10 @@ public class RegisterActivity extends AppCompatActivity {
                         if (chkUser == true) {
                             Boolean insert = db.insert(s1, s2);
                             if (insert == true) {
-                                Toast.makeText(getApplicationContext(), "Registered Successful!", Toast.LENGTH_SHORT);
+                                Toast.makeText(getApplicationContext(), "Registered Successful!", Toast.LENGTH_SHORT).show();
                             }
                         } else {
-                            Toast.makeText(getApplicationContext(), "Email already exist", Toast.LENGTH_LONG);
+                            Toast.makeText(getApplicationContext(), "Username already exist", Toast.LENGTH_LONG).show();
                         }
                     }
                 }
