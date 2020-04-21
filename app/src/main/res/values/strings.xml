@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CSC322Project</string>
+
+    <string-array name="features">
+        <item>Selection</item>
+        <item>Browse</item>
+        <item>Invite</item>
+        <item>Complain</item>
+        <item>Group</item>
+        <item>Schedule</item>
+        <item>Vote</item>
+        <item>Return</item>
+    </string-array>
+</resources>
