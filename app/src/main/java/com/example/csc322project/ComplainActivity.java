@@ -6,15 +6,30 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 public class ComplainActivity extends AppCompatActivity {
     Spinner spinner;
+    private Button submitBtn;
+    private EditText subject_text, complain;
+    Database db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
+        subject_text = findViewById(R.id.user_complain);
+        complain=findViewById(R.id.complain_text);
+        submitBtn= findViewById(R.id.complain_submit);
         spinner = (Spinner) findViewById(R.id.spinner);
+
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMail();
+            }
+        });
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -52,6 +67,21 @@ public class ComplainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void sendMail() {
+        String[] recipient = {"support@idk.com"};
+        String subject = subject_text.getText().toString();
+        String message = complain.getText().toString();
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, recipient);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Choose an email client"));
+    }
+
     private void openHomeActivity() {
         Intent intent = new Intent(this,Home_Page.class);
         startActivity(intent);
