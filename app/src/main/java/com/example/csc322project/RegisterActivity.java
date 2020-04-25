@@ -42,7 +42,7 @@ public class RegisterActivity extends AppCompatActivity {
                         if (chkUser == true) {
                             Boolean insert = db.insert(s1, s2);
                             if (insert == true) {
-                                Toast.makeText(getApplicationContext(), "Registered Successful!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), "Registered Successful! Please use the Login Button to login", Toast.LENGTH_SHORT).show();
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "Username already exist", Toast.LENGTH_LONG).show();
