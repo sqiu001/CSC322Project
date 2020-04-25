@@ -1,6 +1,7 @@
 package com.example.csc322project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,10 +11,14 @@ import android.widget.Spinner;
 
 public class Home_Page extends AppCompatActivity {
     Spinner spinner;
+    ViewPager project_display;
     @Override 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home__page);
+        project_display = (ViewPager) findViewById(R.id.top_projects);
+        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
+        project_display.setAdapter(viewPagerAdapter);
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
