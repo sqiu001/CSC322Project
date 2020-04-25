@@ -1,20 +1,28 @@
 package com.example.csc322project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class BrowseActivity extends AppCompatActivity {
     Spinner spinner;
+    ViewPager projects;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
         spinner = (Spinner) findViewById(R.id.spinner);
+        projects=(ViewPager) findViewById(R.id.all_projects);
+        SliderAdapter sliderAdapter = new SliderAdapter(this);
+        projects.setAdapter(sliderAdapter);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
