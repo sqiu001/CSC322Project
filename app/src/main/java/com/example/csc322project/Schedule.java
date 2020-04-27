@@ -2,18 +2,44 @@ package com.example.csc322project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class Schedule extends AppCompatActivity {
+    private static final String TAG = "Schedule";
+    private TextView theDate;
+    private EditText theMeeting;
+    private Button btnGoCalendar;
+    private final String KEY = "editedValue";
     Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+        theDate = (TextView) findViewById(R.id.view_date);
+        theMeeting = (EditText) findViewById(R.id.meeting);
+        btnGoCalendar = findViewById(R.id.btnDate);
+        Intent IncomingIntent = getIntent();
+        String date = IncomingIntent.getStringExtra("date");
+        theDate.setText(date);
+        btnGoCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Schedule.this, CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -45,13 +71,13 @@ public class Schedule extends AppCompatActivity {
                 }
 
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
     }
+
     private void openHomeActivity() {
         Intent intent = new Intent(this,Home_Page.class);
         startActivity(intent);

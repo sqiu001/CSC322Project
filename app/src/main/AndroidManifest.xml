@@ -16,6 +16,7 @@
         <activity android:name=".InviteActivity" />
         <activity android:name=".BrowseActivity" />
         <activity android:name=".GroupActivity" />
+        <activity android:name=".CalendarActivity" />
         <activity android:name=".Home_Page" />
         <activity android:name=".MainActivity">
             <intent-filter>
