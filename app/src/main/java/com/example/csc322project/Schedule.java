@@ -21,7 +21,6 @@ public class Schedule extends AppCompatActivity {
     private TextView theDate;
     private EditText theMeeting;
     private Button btnGoCalendar;
-    private final String KEY = "editedValue";
     Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

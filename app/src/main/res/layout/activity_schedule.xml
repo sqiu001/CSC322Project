@@ -75,5 +75,4 @@
         android:hint="Meeting for..."
         android:inputType="text"
         android:textSize="30dp" />
-
 </RelativeLayout>
