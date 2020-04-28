@@ -74,5 +74,5 @@
         android:ems="10"
         android:hint="Meeting for..."
         android:inputType="text"
-        android:textSize="30dp" />
+        android:textSize="24dp" />
 </RelativeLayout>

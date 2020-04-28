@@ -6,15 +6,31 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class GroupActivity extends AppCompatActivity {
     Spinner spinner;
+    private EditText edittext;
+    private Button send;
+    private TextView display;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
         spinner = (Spinner) findViewById(R.id.spinner);
+        edittext = (EditText) findViewById(R.id.edittext_chatbox);
+        display = (TextView) findViewById(R.id.message);
+        send = findViewById(R.id.button_chatbox_send);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = edittext.getText().toString();
+                display.setText(text);
+            }
+        });
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
