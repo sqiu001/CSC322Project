@@ -41,7 +41,7 @@
         android:layout_below="@+id/user_complain"
         android:ems="10"
         android:gravity="top|left"
-        android:hint="Complaint..."
+        android:hint="Complaint/Complement..."
         android:inputType="textMultiLine"
         android:lines="8"
         android:maxLines="10"
