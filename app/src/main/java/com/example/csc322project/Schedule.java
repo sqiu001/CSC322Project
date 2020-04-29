@@ -17,10 +17,10 @@ import android.widget.TextView;
 import org.w3c.dom.Text;
 
 public class Schedule extends AppCompatActivity {
-    private static final String TAG = "Schedule";
-    private TextView theDate;
+//    private static final String TAG = "Schedule";
+    private TextView theDate, meeting;
     private EditText theMeeting;
-    private Button btnGoCalendar;
+    private Button btnGoCalendar, btnSave;
     Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,15 @@ public class Schedule extends AppCompatActivity {
         setContentView(R.layout.activity_schedule);
         theDate = (TextView) findViewById(R.id.view_date);
         theMeeting = (EditText) findViewById(R.id.meeting);
+        meeting = (TextView) findViewById(R.id.display_meeting);
+        btnSave = findViewById(R.id.save_meeting);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = theMeeting.getText().toString();
+                meeting.setText(text);
+            }
+        });
         btnGoCalendar = findViewById(R.id.btnDate);
         Intent IncomingIntent = getIntent();
         String date = IncomingIntent.getStringExtra("date");
