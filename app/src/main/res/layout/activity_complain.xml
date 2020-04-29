@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
+    android:background="@drawable/gradient"
     tools:context=".ComplainActivity"
     tools:ignore="ExtraText">
 
@@ -41,7 +43,7 @@
         android:layout_below="@+id/user_complain"
         android:ems="10"
         android:gravity="top|left"
-        android:hint="Complaint/Complement..."
+        android:hint="Complaint/Compliment..."
         android:inputType="textMultiLine"
         android:lines="8"
         android:maxLines="10"
@@ -71,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Complain/Complement"
+        android:text="Complain/Compliment"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
