@@ -15,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class RegisterActivity extends AppCompatActivity {
     Database db;
     EditText e1,e2,e3, name, email, interest, credential, reference;
-    Button b1,b2,send;
+    Button b1,b2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,13 +35,6 @@ public class RegisterActivity extends AppCompatActivity {
         interest = findViewById(R.id.edinterest);
         credential = findViewById(R.id.edcredential);
         reference = findViewById(R.id.edreference);
-        send = findViewById(R.id.btnsend);
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                sendMessage();
-            }
-        });
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

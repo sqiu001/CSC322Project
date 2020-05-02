@@ -39,6 +39,9 @@ public class InviteActivity extends AppCompatActivity {
                     case 7:
                         openHomeActivity();
                         break;
+                    case 8:
+                        openLogoutActivity();
+                        break;
                     default:
                         return;
 
@@ -51,6 +54,10 @@ public class InviteActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
     }
     private void openHomeActivity() {
         Intent intent = new Intent(this,Home_Page.class);

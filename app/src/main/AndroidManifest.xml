@@ -28,6 +28,9 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".VisitorActivity" />
         <activity android:name=".RegisterActivity" />
+        <activity android:name=".VisitorPageActivity" />
+        <activity android:name=".VisitorBrowseActivity" />
+        <activity android:name=".VisitorComplainActivity" />
     </application>
 
 </manifest>

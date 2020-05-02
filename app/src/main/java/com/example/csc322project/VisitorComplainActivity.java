@@ -1,7 +1,5 @@
 package com.example.csc322project;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +12,13 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class ComplainActivity extends AppCompatActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class VisitorComplainActivity extends AppCompatActivity {
     Spinner spinner, spinner2;
     private Button submitBtn;
     private EditText subject_text, complain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,15 +27,15 @@ public class ComplainActivity extends AppCompatActivity {
         complain=findViewById(R.id.complain_text);
         submitBtn= findViewById(R.id.complain_submit);
         spinner = (Spinner) findViewById(R.id.spinner);
+        spinner.setVisibility(View.GONE);
         spinner2 = findViewById(R.id.spinner2);
-        spinner2.setVisibility(View.GONE);
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendMessage();
             }
         });
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 switch (position){
@@ -42,24 +43,12 @@ public class ComplainActivity extends AppCompatActivity {
                         openBrowseActivity();
                         break;
                     case 2:
-                        openInviteActivity();
                         break;
                     case 3:
+                        openRegisterActivity();
                         break;
                     case 4:
-                        openGroupActivity();
-                        break;
-                    case 5:
-                        openScheduleActivity();
-                        break;
-                    case 6:
-                        openVoteActivity();
-                        break;
-                    case 7:
                         openHomeActivity();
-                        break;
-                    case 8:
-                        openLogoutActivity();
                         break;
                     default:
                         return;
@@ -67,31 +56,16 @@ public class ComplainActivity extends AppCompatActivity {
                 }
 
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
     }
-//send email via email client
-//    private void sendMail() {
-//        String[] recipient = {"support@idk.com"};
-//        String subject = subject_text.getText().toString();
-//        String message = complain.getText().toString();
-//
-//        Intent intent = new Intent(Intent.ACTION_SEND);
-//        intent.putExtra(Intent.EXTRA_EMAIL, recipient);
-//        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
-//        intent.putExtra(Intent.EXTRA_TEXT, message);
-//
-//        intent.setType("message/rfc822");
-//        startActivity(Intent.createChooser(intent, "Choose an email client"));
-//    }
 
-//send email from inside application
+    //send email from inside application
     private void sendMessage() {
-        final ProgressDialog dialog = new ProgressDialog(ComplainActivity.this);
+        final ProgressDialog dialog = new ProgressDialog(VisitorComplainActivity.this);
         final String subject = subject_text.getText().toString();
         final String text = complain.getText().toString();
 
@@ -126,37 +100,18 @@ public class ComplainActivity extends AppCompatActivity {
         }
     }
 
-    private void openLogoutActivity() {
-        Intent intent = new Intent(this,LoginActivity.class);
+    private void openRegisterActivity() {
+        Intent intent = new Intent(this,RegisterActivity.class);
         startActivity(intent);
     }
 
     private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this,VisitorPageActivity.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {
-        Intent intent = new Intent(this,BrowseActivity.class);
+        Intent intent = new Intent(this,VisitorBrowseActivity.class);
         startActivity(intent);
     }
-    private void openInviteActivity() {
-        Intent intent = new Intent(this,InviteActivity.class);
-        startActivity(intent);
-    }
-    private void openComplainActivity() {
-        Intent intent = new Intent(this,ComplainActivity.class);
-        startActivity(intent);
-    }
-    private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
-        startActivity(intent);
-    }
-    private void openScheduleActivity() {
-        Intent intent = new Intent(this,Schedule.class);
-        startActivity(intent);
-    }
-    private void openVoteActivity(){
-        Intent intent = new Intent(this,VoteActivity.class);
-        startActivity(intent);
-    }
+
 }

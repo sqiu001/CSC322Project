@@ -13,13 +13,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class BrowseActivity extends AppCompatActivity {
-    Spinner spinner;
+    Spinner spinner, spinner2;
     ViewPager projects;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
         spinner = (Spinner) findViewById(R.id.spinner);
+        spinner2 = findViewById(R.id.spinner2);
+        spinner2.setVisibility(View.GONE);
         projects=(ViewPager) findViewById(R.id.all_projects);
         SliderAdapter sliderAdapter = new SliderAdapter(this);
         projects.setAdapter(sliderAdapter);
@@ -47,6 +49,8 @@ public class BrowseActivity extends AppCompatActivity {
                     case 7:
                         openHomeActivity();
                         break;
+                    case 8:
+                        openLogoutActivity();
                     default:
                         return;
 
@@ -60,6 +64,11 @@ public class BrowseActivity extends AppCompatActivity {
             }
         });
     }
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
     private void openHomeActivity() {
         Intent intent = new Intent(this,Home_Page.class);
         startActivity(intent);

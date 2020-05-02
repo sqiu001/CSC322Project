@@ -32,12 +32,15 @@ public class VoteActivity extends AppCompatActivity {
                         openGroupActivity();
                         break;
                     case 5:
+                        openScheduleActivity();
                         break;
                     case 6:
-                        openVoteActivity();
                         break;
                     case 7:
                         openHomeActivity();
+                        break;
+                    case 8:
+                        openLogoutActivity();
                         break;
                     default:
                         return;
@@ -52,6 +55,11 @@ public class VoteActivity extends AppCompatActivity {
             }
         });
     }
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
     private void openHomeActivity() {
         Intent intent = new Intent(this,Home_Page.class);
         startActivity(intent);

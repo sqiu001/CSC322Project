@@ -10,7 +10,7 @@ import android.widget.AdapterView;
 import android.widget.Spinner;
 
 public class Home_Page extends AppCompatActivity {
-    Spinner spinner;
+    Spinner spinner, spinner2;
     ViewPager project_display;
     @Override 
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,8 @@ public class Home_Page extends AppCompatActivity {
         project_display = (ViewPager) findViewById(R.id.top_projects);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
         project_display.setAdapter(viewPagerAdapter);
+        spinner2 = findViewById(R.id.spinner2);
+        spinner2.setVisibility(View.GONE);
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -44,6 +46,8 @@ public class Home_Page extends AppCompatActivity {
                     case 6:
                         openVoteActivity();
                         break;
+                    case 7:
+                        openLogoutActivity();
                     default:
                         return;
 
@@ -58,6 +62,12 @@ public class Home_Page extends AppCompatActivity {
         });
 
     }
+
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
     private void openBrowseActivity() {
         Intent intent = new Intent(this,BrowseActivity.class);
         startActivity(intent);

@@ -10,5 +10,14 @@
         <item>Schedule</item>
         <item>Vote</item>
         <item>Return</item>
+        <item>Logout</item>
+    </string-array>
+
+    <string-array name="features_visitor">
+        <item>Selection</item>
+        <item>Browse</item>
+        <item>Complain/Compliment</item>
+        <item>Register</item>
+        <item>Return</item>
     </string-array>
 </resources>

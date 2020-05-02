@@ -14,7 +14,13 @@ public class VisitorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visitor);
-
+        buttonContinue = (Button) findViewById(R.id.btnContinue);
+        buttonContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openVisitorPageActivity();
+            }
+        });
         buttonRegister = (Button) findViewById(R.id.btnRegisterActivity);
         buttonRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +32,11 @@ public class VisitorActivity extends AppCompatActivity {
 
     public void openRegisterActivity(){
         Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);
+    }
+
+    private void openVisitorPageActivity() {
+        Intent intent = new Intent(this,VisitorPageActivity.class);
         startActivity(intent);
     }
 }
