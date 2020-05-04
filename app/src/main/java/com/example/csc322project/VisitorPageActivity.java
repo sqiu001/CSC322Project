@@ -26,8 +26,6 @@ public class VisitorPageActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 switch (position){
-                    case 0:
-                        break;
                     case 1:
                         openBrowseActivity();
                         break;
@@ -36,6 +34,8 @@ public class VisitorPageActivity extends AppCompatActivity {
                         break;
                     case 3:
                         openRegisterActivity();
+                        break;
+                    case 4:
                         break;
                     default:
                         return;

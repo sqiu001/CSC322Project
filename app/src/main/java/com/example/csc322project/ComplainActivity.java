@@ -56,9 +56,12 @@ public class ComplainActivity extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
-                        openHomeActivity();
+                        openTodoActivity();
                         break;
                     case 8:
+                        openHomeActivity();
+                        break;
+                    case 9:
                         openLogoutActivity();
                         break;
                     default:
@@ -124,6 +127,10 @@ public class ComplainActivity extends AppCompatActivity {
             });
             sender.start();
         }
+    }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
     }
 
     private void openLogoutActivity() {

@@ -47,9 +47,12 @@ public class BrowseActivity extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
-                        openHomeActivity();
+                        openTodoActivity();
                         break;
                     case 8:
+                        openHomeActivity();
+                        break;
+                    case 9:
                         openLogoutActivity();
                     default:
                         return;
@@ -63,6 +66,10 @@ public class BrowseActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
     }
     private void openLogoutActivity() {
         Intent intent = new Intent(this,LoginActivity.class);

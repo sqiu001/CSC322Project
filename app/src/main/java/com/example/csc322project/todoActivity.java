@@ -1,36 +1,33 @@
 package com.example.csc322project;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
-import android.widget.TextView;
 
-public class GroupActivity extends AppCompatActivity {
-    Spinner spinner;
-    private EditText edittext;
-    private Button send;
-    private TextView display;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import org.apache.commons.io.FileUtils;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class todoActivity extends AppCompatActivity {
+    private ArrayList<String> items;
+    private ArrayAdapter<String> itemsAdapter;
+    private ListView itemsList;
+    private Spinner spinner;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_group);
-        spinner = (Spinner) findViewById(R.id.spinner);
-        edittext = (EditText) findViewById(R.id.edittext_chatbox);
-        display = (TextView) findViewById(R.id.message);
-        send = findViewById(R.id.button_chatbox_send);
-        send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String text = edittext.getText().toString();
-                display.setText(text);
-            }
-        });
+        setContentView(R.layout.activity_todo);
+        itemsList = (ListView) findViewById(R.id.lvItems);
+        items = new ArrayList<String>();
+        spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -45,6 +42,7 @@ public class GroupActivity extends AppCompatActivity {
                         openComplainActivity();
                         break;
                     case 4:
+                        openGroupActivity();
                         break;
                     case 5:
                         openScheduleActivity();
@@ -53,39 +51,82 @@ public class GroupActivity extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
-                        openTodoActivity();
                         break;
                     case 8:
                         openHomeActivity();
                         break;
                     case 9:
                         openLogoutActivity();
-                        break;
                     default:
                         return;
-
                 }
-
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
-
             }
         });
+        readItems();
+        itemsAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, items);
+        itemsList.setAdapter(itemsAdapter);
+        items.add("Figure out the specifications needed for our project");
+        items.add("Draw the diagrams");
+        setupListViewListener();
     }
+
+    private void setupListViewListener() {
+        itemsList.setOnItemLongClickListener(
+                new AdapterView.OnItemLongClickListener() {
+                    @Override
+                    public boolean onItemLongClick(AdapterView<?> adapter,
+                                                   View item, int pos, long id) {
+                        items.remove(pos);
+                        itemsAdapter.notifyDataSetChanged();
+                        writeItems();
+                        return true;
+                    }
+
+                });
+    }
+
+    public void onAddItem(View v) {
+        EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
+        String itemText = etNewItem.getText().toString();
+        itemsAdapter.add(itemText);
+        etNewItem.setText("");
+        writeItems();
+    }
+
+    private void readItems() {
+        File filesDir = getFilesDir();
+        File todoFile = new File(filesDir, "todo.txt");
+        try {
+            items = new ArrayList<String>(FileUtils.readLines(todoFile));
+        } catch (IOException e) {
+            items = new ArrayList<String>();
+        }
+    }
+
+    private void writeItems() {
+        File filesDir = getFilesDir();
+        File todoFile = new File(filesDir, "todo.txt");
+        try {
+            FileUtils.writeLines(todoFile, items);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private void openTodoActivity() {
         Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
+
     private void openLogoutActivity() {
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
-    private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
-        startActivity(intent);
-    }
+
     private void openBrowseActivity() {
         Intent intent = new Intent(this,BrowseActivity.class);
         startActivity(intent);
@@ -108,6 +149,10 @@ public class GroupActivity extends AppCompatActivity {
     }
     private void openVoteActivity(){
         Intent intent = new Intent(this,VoteActivity.class);
+        startActivity(intent);
+    }
+    private void openHomeActivity() {
+        Intent intent = new Intent(this,Home_Page.class);
         startActivity(intent);
     }
 }

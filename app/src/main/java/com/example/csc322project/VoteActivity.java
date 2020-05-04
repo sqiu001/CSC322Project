@@ -37,9 +37,12 @@ public class VoteActivity extends AppCompatActivity {
                     case 6:
                         break;
                     case 7:
-                        openHomeActivity();
+                        openTodoActivity();
                         break;
                     case 8:
+                        openHomeActivity();
+                        break;
+                    case 9:
                         openLogoutActivity();
                         break;
                     default:
@@ -86,6 +89,10 @@ public class VoteActivity extends AppCompatActivity {
     }
     private void openVoteActivity(){
         Intent intent = new Intent(this,VoteActivity.class);
+        startActivity(intent);
+    }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
 

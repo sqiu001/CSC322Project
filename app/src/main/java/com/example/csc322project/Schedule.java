@@ -66,9 +66,12 @@ public class Schedule extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
-                        openHomeActivity();
+                        openTodoActivity();
                         break;
                     case 8:
+                        openHomeActivity();
+                        break;
+                    case 9:
                         openLogoutActivity();
                     default:
                         return;
@@ -112,6 +115,10 @@ public class Schedule extends AppCompatActivity {
     }
     private void openVoteActivity(){
         Intent intent = new Intent(this,VoteActivity.class);
+        startActivity(intent);
+    }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
 }
