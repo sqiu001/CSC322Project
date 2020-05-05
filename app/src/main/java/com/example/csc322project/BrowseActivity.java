@@ -5,12 +5,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 public class BrowseActivity extends AppCompatActivity {
     Spinner spinner, spinner2;
@@ -70,7 +67,7 @@ public class BrowseActivity extends AppCompatActivity {
     }
 
     private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {
