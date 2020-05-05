@@ -9,6 +9,7 @@
         <item>Group</item>
         <item>Schedule</item>
         <item>Vote</item>
+        <item>Todo</item>
         <item>Return</item>
         <item>Logout</item>
     </string-array>

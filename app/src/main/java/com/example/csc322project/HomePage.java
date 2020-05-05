@@ -51,6 +51,9 @@ public class HomePage extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
+                        openTodoActivity();
+                        break;
+                    case 8:
                         openLogoutActivity();
                     default:
                         return;
@@ -103,6 +106,11 @@ public class HomePage extends AppCompatActivity {
     }
     private void openVoteActivity(){
         Intent intent = new Intent(this,VoteActivity.class);
+        startActivity(intent);
+    }
+
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
 }
