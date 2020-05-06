@@ -10,7 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Welcome Visitor"
-        android:textColor="#0A46E1"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#5324FF"
+        android:textStyle="bold"
         android:textSize="50dp" />
 
     <Button

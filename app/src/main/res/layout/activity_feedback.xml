@@ -80,5 +80,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#5324FF"
+        android:textStyle="bold"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

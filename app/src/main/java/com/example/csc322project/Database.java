@@ -15,26 +15,25 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("Create table user(Username text, email text primary key,password text)");
+        db.execSQL("Create table user(Username text primary key,password text)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
         db.execSQL("Drop table if exists user");
     }
-    public boolean insert(String Username, String Password, String Email){
+    public boolean insert(String Username, String Password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put("Username",Username);
-        contentValues.put("Email",Email);
         contentValues.put("password",Password);
         long ins = db.insert("user", null, contentValues);
         if(ins == -1) return false;
         else return true;
     }
-    public Boolean chkuser(String Email){
+    public Boolean chkuser(String Username){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("Select * from user where Email=?", new String[]{Email});
+        Cursor cursor = db.rawQuery("Select * from user where Username=?", new String[]{Username});
         if(cursor.getCount()>0) return false;
         else return true;
     }

@@ -53,13 +53,13 @@ public class RegisterActivity extends AppCompatActivity {
                 if (s4.equals("") || s5.equals("") || s6.equals("") || s7.equals("") || s8.equals("")) {
                     Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
                 } else {
+                    sendMessage();
                     if (s2.equals(s3)) {
                         Boolean chkUser = db.chkuser(s1);
                         if (chkUser == true) {
-                            Boolean insert = db.insert(s1, s2, s5);
+                            Boolean insert = db.insert(s1, s2);
                             if (insert == true) {
                                 Toast.makeText(getApplicationContext(), "Registered Successful!", Toast.LENGTH_SHORT).show();
-                                sendMessage();
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "Username already exist", Toast.LENGTH_LONG).show();
@@ -74,6 +74,11 @@ public class RegisterActivity extends AppCompatActivity {
                 goToLogin();
             }
         });
+    }
+
+    private void openMainActivity() {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 
     private void goToLogin() {

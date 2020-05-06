@@ -13,7 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 public class VisitorPageActivity extends AppCompatActivity {
     Spinner spinner, spinner2;
     ViewPager project_display;
-    Button feedbackBtn;
+    Button feedbackBtn, profileBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +23,8 @@ public class VisitorPageActivity extends AppCompatActivity {
         project_display.setAdapter(viewPagerAdapter);
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setVisibility(View.GONE);
+        profileBtn = findViewById(R.id.btnGoToProfile);
+        profileBtn.setVisibility(View.GONE);
         feedbackBtn = findViewById(R.id.button);
         feedbackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
