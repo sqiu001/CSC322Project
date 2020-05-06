@@ -120,15 +120,22 @@
         android:textSize="20sp" />
 
 
-
     <TextView
         android:id="@+id/textReg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:text="Registration"
-        android:textColor="#0728E3"
-        android:textSize="75dp" />
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginRight="54dp"
+        android:background="#00000000"
+        android:text="REGISTRATION"
+        android:textColor="#5324FF"
+        android:textSize="50dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/edUsername"

@@ -99,14 +99,13 @@
         android:fontFamily="sans-serif-medium"
         android:padding="16dp"
         android:text="Login"
-
         android:textAllCaps="true"
         android:textColor="#FFFFFF"
         android:textSize="16sp" />
 
     <Button
         android:id="@+id/buttonCancel"
-        android:layout_width="195dp"
+        android:layout_width="188dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
@@ -115,10 +114,11 @@
         android:layout_marginStart="116dp"
         android:layout_marginLeft="116dp"
         android:layout_marginBottom="91dp"
-        android:background="@drawable/rectangle_shape"
+        android:background="@drawable/rounded_rectangle"
+        android:fontFamily="sans-serif-medium"
         android:padding="16dp"
         android:text="Cancel"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:visibility="invisible" />
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 </RelativeLayout>
