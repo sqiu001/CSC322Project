@@ -67,7 +67,7 @@ public class InviteActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {

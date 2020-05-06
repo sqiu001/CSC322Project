@@ -10,11 +10,12 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.Spinner;
 
-public class Home_Page extends AppCompatActivity {
+public class HomePage extends AppCompatActivity {
     Spinner spinner, spinner2;
     ViewPager project_display;
+    Button profileButton;
     Button feedbackBtn;
-    @Override 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home__page);
@@ -31,6 +32,7 @@ public class Home_Page extends AppCompatActivity {
             }
         });
         spinner = (Spinner) findViewById(R.id.spinner);
+        profileButton = (Button) findViewById(R.id.btnGoToProfile);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -72,7 +74,16 @@ public class Home_Page extends AppCompatActivity {
 
             }
         });
-
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToProfile();
+            }
+        });
+    }
+    private void goToProfile() {
+        Intent intent = new Intent(this,ProfilePageActivity.class);
+        startActivity(intent);
     }
 
     private void openFeedbackActivity() {

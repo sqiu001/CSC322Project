@@ -66,7 +66,6 @@ public class feedbackActivity extends AppCompatActivity {
                 }
 
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
@@ -99,7 +98,7 @@ public class feedbackActivity extends AppCompatActivity {
     }
 
     private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this,HomePage.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {
