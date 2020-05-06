@@ -28,12 +28,12 @@ public class ProfilePageActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 switch (position) {
                     case 1:
+                        openBrowseActivity();
                         break;
                     case 2:
                         openInviteActivity();
                         break;
                     case 3:
-                        openComplainActivity();
                         break;
                     case 4:
                         openGroupActivity();
@@ -45,10 +45,14 @@ public class ProfilePageActivity extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
-                        openHomeActivity();
+                        openTodoActivity();
                         break;
                     case 8:
+                        openHomeActivity();
+                        break;
+                    case 9:
                         openLogoutActivity();
+                        break;
                     default:
                         return;
 
@@ -62,7 +66,12 @@ public class ProfilePageActivity extends AppCompatActivity {
             }
         });
     }
-        private void openLogoutActivity () {
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
+    }
+
+    private void openLogoutActivity () {
             Intent intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
