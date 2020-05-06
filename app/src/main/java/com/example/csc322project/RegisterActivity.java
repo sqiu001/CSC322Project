@@ -56,7 +56,7 @@ public class RegisterActivity extends AppCompatActivity {
                     if (s2.equals(s3)) {
                         Boolean chkUser = db.chkuser(s1);
                         if (chkUser == true) {
-                            Boolean insert = db.insert(s1, s2);
+                            Boolean insert = db.insert(s1, s2, s5);
                             if (insert == true) {
                                 Toast.makeText(getApplicationContext(), "Registered Successful!", Toast.LENGTH_SHORT).show();
                                 sendMessage();

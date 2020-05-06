@@ -37,8 +37,6 @@ public class HomePage extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 switch (position){
-                    case 0:
-                        break;
                     case 1:
                         openBrowseActivity();
                         break;
@@ -61,6 +59,8 @@ public class HomePage extends AppCompatActivity {
                         openTodoActivity();
                         break;
                     case 8:
+                        break;
+                    case 9:
                         openLogoutActivity();
                     default:
                         return;
