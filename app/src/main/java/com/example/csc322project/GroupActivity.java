@@ -23,11 +23,13 @@ public class GroupActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         edittext = (EditText) findViewById(R.id.edittext_chatbox);
         display = (TextView) findViewById(R.id.message);
+        display.setVisibility(View.GONE);
         send = findViewById(R.id.button_chatbox_send);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String text = edittext.getText().toString();
+                display.setVisibility(View.VISIBLE);
                 display.setText(text);
             }
         });

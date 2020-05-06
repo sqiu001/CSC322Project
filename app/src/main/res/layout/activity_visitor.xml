@@ -21,7 +21,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginVertical="100dp"
         android:text="Continue as Visitor"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:background="@drawable/rounded_rectangle"
+        android:fontFamily="sans-serif-medium"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnRegisterActivity"
@@ -30,6 +35,11 @@
         android:layout_below="@+id/btnContinue"
         android:layout_centerHorizontal="true"
         android:text="Register"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:background="@drawable/rounded_rectangle"
+        android:fontFamily="sans-serif-medium"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
 </RelativeLayout>

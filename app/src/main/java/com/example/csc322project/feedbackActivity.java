@@ -1,44 +1,38 @@
 package com.example.csc322project;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
-public class HomePage extends AppCompatActivity {
-    Spinner spinner, spinner2;
-    ViewPager project_display;
-    Button profileButton;
-    Button feedbackBtn;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class feedbackActivity extends AppCompatActivity {
+
+    Spinner spinner;
+    private Button submitBtn;
+    private EditText subject_text, feedback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home__page);
-        project_display = (ViewPager) findViewById(R.id.top_projects);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
-        project_display.setAdapter(viewPagerAdapter);
-        spinner2 = findViewById(R.id.spinner2);
-        spinner2.setVisibility(View.GONE);
-        feedbackBtn = findViewById(R.id.button);
-        feedbackBtn.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_feedback);
+        subject_text = findViewById(R.id.user);
+        feedback=findViewById(R.id.feedback_text);
+        submitBtn= findViewById(R.id.feedback_submit);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openFeedbackActivity();
+                sendMail();
             }
         });
-        spinner = (Spinner) findViewById(R.id.spinner);
-        profileButton = (Button) findViewById(R.id.btnGoToProfile);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 switch (position){
-                    case 0:
-                        break;
                     case 1:
                         openBrowseActivity();
                         break;
@@ -61,7 +55,11 @@ public class HomePage extends AppCompatActivity {
                         openTodoActivity();
                         break;
                     case 8:
+                        openHomeActivity();
+                        break;
+                    case 9:
                         openLogoutActivity();
+                        break;
                     default:
                         return;
 
@@ -74,20 +72,24 @@ public class HomePage extends AppCompatActivity {
 
             }
         });
-        profileButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                goToProfile();
-            }
-        });
     }
-    private void goToProfile() {
-        Intent intent = new Intent(this,ProfilePageActivity.class);
-        startActivity(intent);
+//send email via email client
+    private void sendMail() {
+        String[] recipient = {"support@idk.com"};
+        String subject = subject_text.getText().toString();
+        String message = feedback.getText().toString();
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, recipient);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Choose an email client"));
     }
 
-    private void openFeedbackActivity() {
-        Intent intent = new Intent(this,feedbackActivity.class);
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
 
@@ -96,6 +98,10 @@ public class HomePage extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void openHomeActivity() {
+        Intent intent = new Intent(this,Home_Page.class);
+        startActivity(intent);
+    }
     private void openBrowseActivity() {
         Intent intent = new Intent(this,BrowseActivity.class);
         startActivity(intent);
@@ -120,11 +126,5 @@ public class HomePage extends AppCompatActivity {
         Intent intent = new Intent(this,VoteActivity.class);
         startActivity(intent);
     }
-
-    private void openTodoActivity() {
-        Intent intent = new Intent(this,todoActivity.class);
-        startActivity(intent);
-    }
-
-
 }
+
