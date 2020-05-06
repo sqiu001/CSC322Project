@@ -28,6 +28,9 @@ public class RegisterActivity extends AppCompatActivity {
         e1 = (EditText) findViewById(R.id.edUsername);
         e2 = (EditText) findViewById(R.id.edPassword);
         e3 = (EditText) findViewById(R.id.edConfirmPassword);
+        e1.setVisibility(View.GONE);
+        e2.setVisibility(View.GONE);
+        e3.setVisibility(View.GONE);
         b1 = (Button) findViewById(R.id.btnRegister);
         b2 = (Button) findViewById(R.id.btnGoToLogin);
         name = findViewById(R.id.edname);
@@ -41,8 +44,13 @@ public class RegisterActivity extends AppCompatActivity {
                 String s1 = e1.getText().toString();
                 String s2 = e2.getText().toString();
                 String s3 = e3.getText().toString();
+                String s4 = name.getText().toString();
+                String s5 = email.getText().toString();
+                String s6 = interest.getText().toString();
+                String s7 = credential.getText().toString();
+                String s8 = reference.getText().toString();
 
-                if (s1.equals("") || s2.equals("") || s3.equals("")) {
+                if (s4.equals("") || s5.equals("") || s6.equals("") || s7.equals("") || s8.equals("")) {
                     Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
                 } else {
                     if (s2.equals(s3)) {

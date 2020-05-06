@@ -1,69 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient">
 
-    <TextView
-        android:id="@+id/textLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="150dp"
+        android:layout_height="136dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="Login"
-        android:textSize="35dp" />
+        android:layout_marginStart="136dp"
+        android:layout_marginLeft="136dp"
+        android:layout_marginTop="40dp"
+        android:background="#00000000"
+        app:srcCompat="@android:mipmap/sym_def_app_icon" />
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textLogin"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="186dp"
+        android:layout_marginEnd="145dp"
+        android:layout_marginRight="145dp"
+        android:fontFamily="sans-serif-light"
         android:text="QZDYpi"
-        android:textColor="#2428FF"
-        android:textSize="35dp" />
+        android:textColor="#5324FF"
+        android:textSize="35dp"
+        android:textStyle="bold" />
 
     <EditText
         android:id="@+id/Username"
-        android:layout_width="wrap_content"
+        android:layout_width="289dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/text"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="46dp"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="61dp"
+        android:layout_marginLeft="61dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="61dp"
+        android:layout_marginRight="61dp"
+        android:hint="USERNAME"
         android:focusable="true"
-        android:hint="Enter Username"
+        android:background="@drawable/rectangle_shape"
+        android:fontFamily="sans-serif-light"
+        android:padding="16dp"
         android:textColorHighlight="#50514E"
-        android:textColorHint="#504B4F" />
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/Password"
-        android:layout_width="wrap_content"
+        android:layout_width="293dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/Username"
         android:layout_alignEnd="@+id/Username"
         android:layout_alignRight="@+id/Username"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="62dp"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="-4dp"
+        android:layout_marginRight="-4dp"
+        android:background="@drawable/rectangle_shape"
         android:ems="10"
-        android:hint="Enter Password"
+        android:fontFamily="sans-serif-light"
+        android:hint="PASSWORD"
         android:inputType="textPassword"
-        android:textColorHint="#504B4F" />
+        android:padding="16dp"
+        android:textColorHint="#FFFFFF"
+        android:textSize="20sp" />
 
     <Button
         android:id="@+id/buttonLogin"
-        android:layout_width="wrap_content"
+        android:layout_width="188dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Password"
-        android:text="Login" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginBottom="165dp"
+        android:background="@drawable/rounded_rectangle"
+        android:fontFamily="sans-serif-medium"
+        android:padding="16dp"
+        android:text="Login"
+
+        android:textAllCaps="true"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <Button
         android:id="@+id/buttonCancel"
-        android:layout_width="wrap_content"
+        android:layout_width="195dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Password"
-        android:layout_toRightOf="@+id/buttonLogin"
-        android:text="Cancel" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="116dp"
+        android:layout_marginLeft="116dp"
+        android:layout_marginBottom="91dp"
+        android:background="@drawable/rectangle_shape"
+        android:padding="16dp"
+        android:text="Cancel"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:visibility="invisible" />
 </RelativeLayout>
