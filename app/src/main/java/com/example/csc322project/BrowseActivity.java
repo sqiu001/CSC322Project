@@ -14,7 +14,6 @@ import android.widget.Spinner;
 public class BrowseActivity extends AppCompatActivity {
     Spinner spinner, spinner2;
     ViewPager projects;
-    Button feedbackBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,13 +21,6 @@ public class BrowseActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner2 = findViewById(R.id.spinner2);
         spinner2.setVisibility(View.GONE);
-        feedbackBtn = findViewById(R.id.button);
-        feedbackBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openFeedbackActivity();
-            }
-        });
         projects=(ViewPager) findViewById(R.id.all_projects);
         SliderAdapter sliderAdapter = new SliderAdapter(this);
         projects.setAdapter(sliderAdapter);

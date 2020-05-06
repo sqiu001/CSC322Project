@@ -17,7 +17,7 @@
         android:layout_marginLeft="136dp"
         android:layout_marginTop="10dp"
         android:background="#00000000"
-        app:srcCompat="@android:mipmap/sym_def_app_icon" />
+        app:srcCompat="@drawable/react" />
 
     <TextView
         android:id="@+id/text"

@@ -35,7 +35,10 @@ public class LoginActivity extends AppCompatActivity {
                 String username = ed1.getText().toString();
                 String password = ed2.getText().toString();
                 Boolean chkaccount = db.checkAccount(username, password);
-                if(chkaccount==true){
+                if(username.equals("") || password.equals("")){
+                    Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
+                }
+                else if(chkaccount==true){
                     Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
                      Home();}
                 else

@@ -5,16 +5,16 @@
 
     <ImageView
         android:id="@+id/project_image"
-        android:layout_width="270dp"
-        android:layout_height="264dp"
+        android:layout_width="188dp"
+        android:layout_height="134dp"
         android:layout_below="@+id/project_body"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="72dp"
-        android:layout_marginRight="72dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginRight="109dp"
         app:srcCompat="@drawable/image1" />
 
     <TextView
