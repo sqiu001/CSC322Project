@@ -39,6 +39,7 @@
         <activity android:name=".VisitorComplainActivity" />
         <activity android:name=".todoActivity" />
         <activity android:name=".feedbackActivity" />
+        <activity android:name=".InviteOptions"/>
     </application>
 
 </manifest>
