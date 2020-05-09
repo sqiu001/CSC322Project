@@ -194,6 +194,7 @@ android:layout_height="match_parent"
             android:text="VIP"
             app:layout_constraintLeft_toRightOf="@+id/ranking"
             app:layout_constraintTop_toBottomOf="@+id/main_interest_content" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>
 </ScrollView>
