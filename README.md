@@ -30,16 +30,16 @@ A step by step series of that tell you how to get a development env running
 * [x] Register and Login
 * [x] Browse through projects
 * [x] Invite users
-* [x] Place users in whitebox or blackbox
+* [x] Place users in whitebox (accept invites automatically) or blackbox (reject invites automatically)
 * [x] Search users 
 * [x] Complain or compliment a group or user
 * [x] Chat with group
 * [x] Schedule meetings
 * [x] Rate projects
 * [x] Create a to-do list
-* [ ] Have meet-up polls
-* [ ] Status for users 
-* [ ] Taboo lists
+* [x] Have meet-up polls
+* [ ] Point system to determine status 
+* [x] Taboo words converter
 ## Deployment
 There are two methods to deploy this application on a live system
 1. Create a virtual device via ```Available Devices -> Open AVD Manager -> Create Virtual Devices -> Select Hardware desired```
