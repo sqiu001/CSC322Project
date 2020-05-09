@@ -1,5 +1,5 @@
 <h1 align = "center"> IDK </h1>
-<h4 align = "center"> IDK is a mobile application that facilates team formation to work on projects with people of similar interests. </h4> 
+<h4 align = "center"> IDK is a mobile application that facilitates team formation to work on projects with people of similar interests. </h4> 
 <p align="center">
   <a href="#Getting Started">Getting Started</a> •
   <a href="#Prerequisites">Prerequisites</a> •
