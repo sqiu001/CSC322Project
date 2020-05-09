@@ -11,11 +11,15 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class GroupActivity extends AppCompatActivity {
     Spinner spinner;
     private EditText edittext;
     private Button send;
     private TextView display;
+    ArrayList<String> tabooWords = new ArrayList<String>();
+    int score = 20;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,13 +28,27 @@ public class GroupActivity extends AppCompatActivity {
         edittext = (EditText) findViewById(R.id.edittext_chatbox);
         display = (TextView) findViewById(R.id.message);
         display.setVisibility(View.GONE);
+        tabooWords.add("idiot");
+        tabooWords.add("fuck");
+        tabooWords.add("dumb");
+        tabooWords.add("loser");
+        tabooWords.add("piss");
+        tabooWords.add("bitch");
         send = findViewById(R.id.button_chatbox_send);
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String text = edittext.getText().toString();
-                display.setVisibility(View.VISIBLE);
-                display.setText(text);
+                if(tabooWords.contains(text)){
+                    text = "***";
+                    display.setVisibility(View.VISIBLE);
+                    display.setText(text);
+                    score -= 1;
+                }
+                else{
+                    display.setVisibility(View.VISIBLE);
+                    display.setText(text);
+                }
             }
         });
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

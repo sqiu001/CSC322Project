@@ -107,7 +107,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
-        android:id="@+id/blackbox"
+        android:id="@+id/whitebox"
         android:layout_width="310dp"
         android:layout_height="124dp"
         android:background="@drawable/rectangle_shape"
@@ -131,7 +131,7 @@
         app:layout_constraintVertical_bias="0.174" />
 
     <ListView
-        android:id="@+id/whitebox"
+        android:id="@+id/blackbox"
         android:layout_width="303dp"
         android:layout_height="122dp"
         android:layout_marginTop="120dp"

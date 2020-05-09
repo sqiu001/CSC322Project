@@ -15,7 +15,7 @@ public class Schedule extends AppCompatActivity {
 //    private static final String TAG = "Schedule";
     private TextView theDate, meeting;
     private EditText theMeeting;
-    private Button btnGoCalendar, btnSave;
+    private Button btnGoCalendar, btnSave, btnPoll;
     Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,13 @@ public class Schedule extends AppCompatActivity {
         theDate = (TextView) findViewById(R.id.view_date);
         theMeeting = (EditText) findViewById(R.id.meeting);
         meeting = (TextView) findViewById(R.id.display_meeting);
+        btnPoll = findViewById(R.id.btnpoll);
+        btnPoll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openPollActivity();
+            }
+        });
         btnSave = findViewById(R.id.save_meeting);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,4 +128,9 @@ public class Schedule extends AppCompatActivity {
         Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
+    private void openPollActivity() {
+        Intent intent = new Intent(this,pollActivity.class);
+        startActivity(intent);
+    }
+
 }

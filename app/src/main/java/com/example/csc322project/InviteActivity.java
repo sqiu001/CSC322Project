@@ -41,6 +41,12 @@ public class InviteActivity extends AppCompatActivity {
         mylist.add("Tony");
         mylist.add("Sandy");
         mylist.add("Kevin");
+        mylist.add("Quetourah");
+        mylist.add("Spongebob");
+        mylist.add("Patrick");
+        mylist.add("Plankton");
+        mylist.add("Mr.Krabs");
+        mylist.add("Squidward");
         mylist.add("test");
         arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, mylist);
         listView.setAdapter(arrayAdapter);

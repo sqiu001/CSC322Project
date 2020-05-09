@@ -23,6 +23,8 @@ public class InviteOptions extends AppCompatActivity {
     ArrayList<String> addBlack = new ArrayList<String>();
     ArrayList<String> testWhite = new ArrayList<String>();
     ArrayList<String> testBlack = new ArrayList<String>();
+    ArrayAdapter<String> whiteAdapter;
+    ArrayAdapter<String> blackAdapter;
     ListView showWhite, showBlack;
     EditText text;
     @Override
@@ -35,6 +37,7 @@ public class InviteOptions extends AppCompatActivity {
         mylist.add("Sandy");
         mylist.add("Kevin");
         mylist.add("test");
+        mylist.add("quetourah");
         spinner = (Spinner) findViewById(R.id.spinner);
         text = findViewById(R.id.user_search);
         white = findViewById(R.id.white);
@@ -43,18 +46,28 @@ public class InviteOptions extends AppCompatActivity {
         showWhite = findViewById(R.id.whitebox);
         testWhite.add("kevin");
         testBlack.add("sandy");
+        addWhite.add("hong");
+        addBlack.add("quetourah");
+        whiteAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, addWhite);
+        showWhite.setAdapter(whiteAdapter);
+        blackAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, addBlack);
+        showBlack.setAdapter(blackAdapter);
         white.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String getInput = text.getText().toString();
+                boolean check = mylist.contains(getInput);
                 if(addWhite.contains(getInput)){
                     Toast.makeText(getBaseContext(), "User already in list", Toast.LENGTH_SHORT).show();
                 }
                 else if(getInput == null || getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(), "Field is empty", Toast.LENGTH_SHORT).show();
                 }
-                else if(!mylist.contains(getInput)){
+                else if(!check){
                     Toast.makeText(getBaseContext(), "User does not exist", Toast.LENGTH_SHORT).show();
+                }
+                else if(addBlack.contains(getInput)){
+                    Toast.makeText(getBaseContext(), "User in blacklist", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     addWhite.add(getInput);
@@ -68,14 +81,18 @@ public class InviteOptions extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String getInput = text.getText().toString();
+                boolean check = mylist.contains(getInput);
                 if(addBlack.contains(getInput)){
                     Toast.makeText(getBaseContext(), "User already in list", Toast.LENGTH_SHORT).show();
                 }
                 else if(getInput == null || getInput.trim().equals("")){
                     Toast.makeText(getBaseContext(), "Field is empty", Toast.LENGTH_SHORT).show();
                 }
-                else if(!mylist.contains(getInput)){
+                else if(!check){
                     Toast.makeText(getBaseContext(), "User does not exist", Toast.LENGTH_SHORT).show();
+                }
+                else if(addWhite.contains(getInput)){
+                    Toast.makeText(getBaseContext(), "User in whitelist", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     addBlack.add(getInput);
