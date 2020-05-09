@@ -1,4 +1,5 @@
-<h1 align = "center"> IDK </h1>
+<h1 align = "center"> 
+  <br><a href="https://pixabay.com/users/ElisaRiva-1348268/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1971128"><img src=https://cdn.pixabay.com/photo/2017/01/11/08/31/icon-1971128_1280.png alt="Android" width="100"></a></br>IDK </h1>
 <h4 align = "center"> IDK is a mobile application that facilitates team formation to work on projects with people of similar interests. </h4> 
 <p align="center">
   <a href="#Getting Started">Getting Started</a> •
