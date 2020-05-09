@@ -41,6 +41,7 @@ A step by step series of that tell you how to get a development env running
 * [ ] Point system to determine status 
 * [x] Taboo words converter
 * [x] Track group task assignments
+* [x] Feedback function
 * [ ] Vote to close group and conduct group evaluation
 * [ ] Vote to warn/praise group member
 * [ ] Vote to remove group member
