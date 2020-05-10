@@ -14,15 +14,18 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class InviteOptions extends AppCompatActivity {
     Spinner spinner;
     Button white, black, invite;
-    ArrayList<String> addWhite = new ArrayList<String>();
-    ArrayList<String> addBlack = new ArrayList<String>();
-    ArrayList<String> testWhite = new ArrayList<String>();
-    ArrayList<String> testBlack = new ArrayList<String>();
+    ArrayList<String> addWhite = new ArrayList<>();
+    ArrayList<String> addBlack = new ArrayList<>();
+    ArrayList<String> testWhite = new ArrayList<>();
+    ArrayList<String> testBlack = new ArrayList<>();
+    List<String> mylist = Arrays.asList("John", "Tony", "Sandy", "Kevin", "test", "Quetourah", "Hong", "Patrick",
+            "Spongebob", "Plankton", "Mr.Krabs", "Squidward");
     ArrayAdapter<String> whiteAdapter;
     ArrayAdapter<String> blackAdapter;
     ListView showWhite, showBlack;
@@ -31,23 +34,16 @@ public class InviteOptions extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.invite_option);
-        final List<String> mylist = new ArrayList<>();
-        mylist.add("John");
-        mylist.add("Tony");
-        mylist.add("Sandy");
-        mylist.add("Kevin");
-        mylist.add("test");
-        mylist.add("quetourah");
         spinner = (Spinner) findViewById(R.id.spinner);
         text = findViewById(R.id.user_search);
         white = findViewById(R.id.white);
         black = findViewById(R.id.black);
+        addWhite.add("Hong");
+        addBlack.add("Quetourah");
+        testWhite.add("Kevin");
+        testBlack.add("Sandy");
         showBlack = findViewById(R.id.blackbox);
         showWhite = findViewById(R.id.whitebox);
-        testWhite.add("kevin");
-        testBlack.add("sandy");
-        addWhite.add("hong");
-        addBlack.add("quetourah");
         whiteAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, addWhite);
         showWhite.setAdapter(whiteAdapter);
         blackAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, addBlack);

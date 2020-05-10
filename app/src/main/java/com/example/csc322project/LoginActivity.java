@@ -1,5 +1,6 @@
 package com.example.csc322project;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Arrays;
@@ -43,7 +45,8 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else if(chkaccount==true || (username.equals("test") && password.equals("1234"))){
                     Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
-                     Home();}
+                    Home();
+                }
                 else
                     Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
                //Login();
@@ -61,6 +64,13 @@ public class LoginActivity extends AppCompatActivity {
     }
     private void Home(){
         Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        builder.setCancelable(true);
+        builder.setTitle("Notification");
+        builder.setMessage("Please change your password");
+        builder.show();
+        intent = new Intent(this, ProfilePageActivity.class);
         startActivity(intent);
     }
 }
