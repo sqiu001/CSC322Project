@@ -30,13 +30,22 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfilePageActivity extends AppCompatActivity {
     private static int RESULT_LOAD_IMAGE = 1;
     Spinner spinner, spinner2;
+    FloatingActionButton btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_page);
+        setContentView(R.layout.content_profile_page);
         spinner2 = findViewById(R.id.spinner2);
         spinner2.setVisibility(View.GONE);
+        btn = findViewById(R.id.change);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), PopUpActivity.class);
+                startActivity(intent);
+            }
+        });
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
