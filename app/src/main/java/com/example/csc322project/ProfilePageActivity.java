@@ -96,10 +96,13 @@ public class ProfilePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                Intent i = new Intent(
-                        Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
+//                Intent i = new Intent(
+//                        Intent.ACTION_PICK,
+//                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//
+//                startActivityForResult(i, RESULT_LOAD_IMAGE);
+                Intent i = new Intent(Intent.ACTION_PICK);
+                i.setType("image/*");
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
             }
         });
@@ -108,23 +111,29 @@ public class ProfilePageActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
-            Uri selectedImage = data.getData();
-            String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-            Cursor cursor = getContentResolver().query(selectedImage,
-                    filePathColumn, null, null, null);
-            cursor.moveToFirst();
-
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
-            cursor.close();
-
+//        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+//            Uri selectedImage = data.getData();
+//            String[] filePathColumn = { MediaStore.Images.Media.DATA };
+//
+//            Cursor cursor = getContentResolver().query(selectedImage,
+//                    filePathColumn, null, null, null);
+//            cursor.moveToFirst();
+//
+//            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+//            String picturePath = cursor.getString(columnIndex);
+//            cursor.close();
+//
+//            CircleImageView imageView = findViewById(R.id.profile);
+//            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+////            Bitmap bitmapProfilePic = BitmapFactory.decodeFile(picturePath);
+////            Bitmap b = BitmapFactory.decodeByteArray(bitmapProfilePic , 0, bitmapProfilePic);
+////            imageView.setImageBitmap(Bitmap.createScaledBitmap(b, 120, 120, false));
+//        }
+        if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK){
             CircleImageView imageView = findViewById(R.id.profile);
-            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-//            Bitmap bitmapProfilePic = BitmapFactory.decodeFile(picturePath);
-//            Bitmap b = BitmapFactory.decodeByteArray(bitmapProfilePic , 0, bitmapProfilePic);
-//            imageView.setImageBitmap(Bitmap.createScaledBitmap(b, 120, 120, false));
+            Uri imageUri = data.getData();
+            imageView.setImageURI(imageUri);
+
         }
 
 
