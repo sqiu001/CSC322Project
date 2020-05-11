@@ -12,18 +12,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import java.io.FileNotFoundException;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -31,9 +34,9 @@ public class ProfilePageActivity extends AppCompatActivity {
     private static int RESULT_LOAD_IMAGE = 1;
     Spinner spinner, spinner2;
     FloatingActionButton btn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_profile_page);
         spinner2 = findViewById(R.id.spinner2);
@@ -96,6 +99,7 @@ public class ProfilePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
+
 //                Intent i = new Intent(
 //                        Intent.ACTION_PICK,
 //                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -111,30 +115,22 @@ public class ProfilePageActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-//        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
-//            Uri selectedImage = data.getData();
-//            String[] filePathColumn = { MediaStore.Images.Media.DATA };
-//
-//            Cursor cursor = getContentResolver().query(selectedImage,
-//                    filePathColumn, null, null, null);
-//            cursor.moveToFirst();
-//
-//            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-//            String picturePath = cursor.getString(columnIndex);
-//            cursor.close();
-//
-//            CircleImageView imageView = findViewById(R.id.profile);
-//            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-////            Bitmap bitmapProfilePic = BitmapFactory.decodeFile(picturePath);
-////            Bitmap b = BitmapFactory.decodeByteArray(bitmapProfilePic , 0, bitmapProfilePic);
-////            imageView.setImageBitmap(Bitmap.createScaledBitmap(b, 120, 120, false));
-//        }
-        if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK){
-            CircleImageView imageView = findViewById(R.id.profile);
-            Uri imageUri = data.getData();
-            imageView.setImageURI(imageUri);
+        CircleImageView imageView = findViewById(R.id.profile);
+        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+            Uri selectedImage = data.getData();
+            Bitmap bitmap = null;
+            try {
+                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            imageView.setImageBitmap(bitmap);
 
-        }
+//         if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK){
+//             CircleImageView imageView = findViewById(R.id.profile);
+//             Uri imageUri = data.getData();
+//             imageView.setImageURI(imageUri);
+//         }
 
 
     }
