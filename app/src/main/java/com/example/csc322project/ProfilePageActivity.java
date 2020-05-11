@@ -1,5 +1,16 @@
 package com.example.csc322project;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -12,8 +23,11 @@ import android.widget.ImageView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import java.io.FileNotFoundException;
+import de.hdodenhof.circleimageview.CircleImageView;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfilePageActivity extends AppCompatActivity {
@@ -85,10 +99,14 @@ public class ProfilePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View arg0) {
 
-                Intent i = new Intent(
-                        Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
 
+//                Intent i = new Intent(
+//                        Intent.ACTION_PICK,
+//                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+//
+//                startActivityForResult(i, RESULT_LOAD_IMAGE);
+                Intent i = new Intent(Intent.ACTION_PICK);
+                i.setType("image/*");
                 startActivityForResult(i, RESULT_LOAD_IMAGE);
             }
         });
@@ -107,7 +125,12 @@ public class ProfilePageActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
             imageView.setImageBitmap(bitmap);
-        }
+
+//         if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK){
+//             CircleImageView imageView = findViewById(R.id.profile);
+//             Uri imageUri = data.getData();
+//             imageView.setImageURI(imageUri);
+//         }
 
 
     }
