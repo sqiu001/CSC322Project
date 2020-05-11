@@ -43,7 +43,7 @@ A step by step series of that tell you how to get a development env running
 * [x] Taboo words converter
 * [x] Track group task assignments
 * [x] Feedback function
-* [ ] User profile 
+* [x] User profile 
 * [ ] Vote to close group and conduct group evaluation
 * [ ] Vote to warn/praise group member
 * [ ] Vote to remove group member
