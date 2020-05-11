@@ -1,33 +1,19 @@
 package com.example.csc322project;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.content.Intent;
-import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.Spinner;
-
 import java.io.FileNotFoundException;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfilePageActivity extends AppCompatActivity {
@@ -110,8 +96,8 @@ public class ProfilePageActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        CircleImageView imageView = findViewById(R.id.profile);
 
+        CircleImageView imageView = findViewById(R.id.profile);
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
             Bitmap bitmap = null;
