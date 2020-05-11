@@ -39,11 +39,13 @@
         <activity android:name=".VisitorPageActivity" />
         <activity android:name=".VisitorBrowseActivity" />
         <activity android:name=".VisitorComplainActivity" />
+        <activity android:name=".VisitorGroupActivity" />
         <activity android:name=".todoActivity" />
         <activity android:name=".feedbackActivity" />
         <activity android:name=".InviteOptions"/>
         <activity android:name=".pollActivity"/>
         <activity android:name=".recordActivity"/>
+        <activity android:name=".GridViewActivity"/>
         <activity android:name=".PopUpActivity" android:theme = "@style/AppTheme.PopMe"></activity>
         <activity android:name=".VisitorFeedbackActivity"></activity>
     </application>

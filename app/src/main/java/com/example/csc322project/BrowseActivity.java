@@ -14,6 +14,7 @@ import android.widget.Spinner;
 public class BrowseActivity extends AppCompatActivity {
     Spinner spinner, spinner2;
     ViewPager projects;
+    Button group;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,13 @@ public class BrowseActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner2 = findViewById(R.id.spinner2);
         spinner2.setVisibility(View.GONE);
+        group = findViewById(R.id.group);
+        group.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openVisitorGroupActivity();
+            }
+        });
         projects=(ViewPager) findViewById(R.id.all_projects);
         SliderAdapter sliderAdapter = new SliderAdapter(this);
         projects.setAdapter(sliderAdapter);
@@ -103,8 +111,8 @@ public class BrowseActivity extends AppCompatActivity {
         Intent intent = new Intent(this,VoteActivity.class);
         startActivity(intent);
     }
-    private void openFeedbackActivity() {
-        Intent intent = new Intent(this,feedbackActivity.class);
+    private void openVisitorGroupActivity() {
+        Intent intent = new Intent(this,VisitorGroupActivity.class);
         startActivity(intent);
     }
 }

@@ -115,22 +115,22 @@ public class ProfilePageActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        CircleImageView imageView = findViewById(R.id.profile);
-        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
-            Uri selectedImage = data.getData();
-            Bitmap bitmap = null;
-            try {
-                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage));
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-            imageView.setImageBitmap(bitmap);
+//        CircleImageView imageView = findViewById(R.id.profile);
+//        if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+//            Uri selectedImage = data.getData();
+//            Bitmap bitmap = null;
+//            try {
+//                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage));
+//            } catch (FileNotFoundException e) {
+//                e.printStackTrace();
+//            }
+//            imageView.setImageBitmap(bitmap);
 
-//         if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK){
-//             CircleImageView imageView = findViewById(R.id.profile);
-//             Uri imageUri = data.getData();
-//             imageView.setImageURI(imageUri);
-//         }
+         if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK){
+             CircleImageView imageView = findViewById(R.id.profile);
+             Uri imageUri = data.getData();
+             imageView.setImageURI(imageUri);
+         }
 
 
     }
