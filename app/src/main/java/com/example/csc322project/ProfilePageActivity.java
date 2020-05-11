@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
@@ -25,15 +26,17 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 
+import java.io.FileNotFoundException;
+
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ProfilePageActivity extends AppCompatActivity {
     private static int RESULT_LOAD_IMAGE = 1;
     Spinner spinner, spinner2;
     FloatingActionButton btn;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_profile_page);
         spinner2 = findViewById(R.id.spinner2);
@@ -107,24 +110,17 @@ public class ProfilePageActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        CircleImageView imageView = findViewById(R.id.profile);
 
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
             Uri selectedImage = data.getData();
-            String[] filePathColumn = { MediaStore.Images.Media.DATA };
-
-            Cursor cursor = getContentResolver().query(selectedImage,
-                    filePathColumn, null, null, null);
-            cursor.moveToFirst();
-
-            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-            String picturePath = cursor.getString(columnIndex);
-            cursor.close();
-
-            CircleImageView imageView = findViewById(R.id.profile);
-            imageView.setImageBitmap(BitmapFactory.decodeFile(picturePath));
-//            Bitmap bitmapProfilePic = BitmapFactory.decodeFile(picturePath);
-//            Bitmap b = BitmapFactory.decodeByteArray(bitmapProfilePic , 0, bitmapProfilePic);
-//            imageView.setImageBitmap(Bitmap.createScaledBitmap(b, 120, 120, false));
+            Bitmap bitmap = null;
+            try {
+                bitmap = BitmapFactory.decodeStream(getContentResolver().openInputStream(selectedImage));
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+            imageView.setImageBitmap(bitmap);
         }
 
 
