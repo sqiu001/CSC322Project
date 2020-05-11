@@ -201,7 +201,7 @@ android:layout_height="match_parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:stretchColumns="*"
-            app:layout_constraintLeft_toRightOf="match_parent"
+            app:layout_constraintLeft_toRightOf="@id/simpleTableLayout"
             app:layout_constraintTop_toBottomOf="@+id/ranking"> <!-- stretch the second column of the layout-->
             <!-- first row of the table layout-->
             <TableRow
