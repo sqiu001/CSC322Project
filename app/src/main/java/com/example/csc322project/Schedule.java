@@ -24,6 +24,13 @@ public class Schedule extends AppCompatActivity {
         theDate = (TextView) findViewById(R.id.view_date);
         theMeeting = (EditText) findViewById(R.id.meeting);
         meeting = (TextView) findViewById(R.id.display_meeting);
+//        btnPoll = findViewById(R.id.btnpoll);
+//        btnPoll.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openPollActivity();
+//            }
+//        });
         btnSave = findViewById(R.id.save_meeting);
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +39,13 @@ public class Schedule extends AppCompatActivity {
                 meeting.setText(text);
             }
         });
+//        btnRecord = findViewById(R.id.recordbtn);
+//        btnRecord.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openRecordActivity();
+//            }
+//        });
         btnGoCalendar = findViewById(R.id.btnDate);
         Intent IncomingIntent = getIntent();
         String date = IncomingIntent.getStringExtra("date");
@@ -106,7 +120,7 @@ public class Schedule extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {
@@ -121,4 +135,13 @@ public class Schedule extends AppCompatActivity {
         Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
+    private void openPollActivity() {
+        Intent intent = new Intent(this,pollActivity.class);
+        startActivity(intent);
+    }
+    private void openRecordActivity() {
+        Intent intent = new Intent(this,recordActivity.class);
+        startActivity(intent);
+    }
+
 }

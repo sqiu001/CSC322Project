@@ -1,33 +1,76 @@
 package com.example.csc322project;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.Button;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import org.apache.commons.io.FileUtils;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 
-public class todoActivity extends AppCompatActivity {
-    private ArrayList<String> items;
-    private ArrayAdapter<String> itemsAdapter;
-    private ListView itemsList;
+public class pollActivity extends AppCompatActivity {
+    RadioGroup radioGroup;
+    RadioButton radioButton;
+    TextView one, two, three, four, five;
+    Button choose;
     private Spinner spinner;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_todo);
-        itemsList = (ListView) findViewById(R.id.lvItems);
-        items = new ArrayList<String>();
-        spinner = findViewById(R.id.spinner);
+        setContentView(R.layout.activity_poll);
+        radioGroup = findViewById(R.id.poll_options);
+        one = findViewById(R.id.vote1);
+        two = findViewById(R.id.vote2);
+        three = findViewById(R.id.vote3);
+        four = findViewById(R.id.vote4);
+        five = findViewById(R.id.vote5);
+        choose = findViewById(R.id.choose_poll);
+        choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int radioId = radioGroup.getCheckedRadioButtonId();
+                //radioButton = findViewById(radioId);
+                switch (radioId){
+                    case R.id.radioButton:
+                        String vote1 = one.getText().toString().trim();
+                        int total = Integer.parseInt(vote1);
+                        total ++;
+                        one.setText(String.valueOf(total));
+                        break;
+                    case R.id.radioButton2:
+                        String vote2 = two.getText().toString().trim();
+                        int total2 = Integer.parseInt(vote2);
+                        total2 ++;
+                        two.setText(String.valueOf(total2));
+                        break;
+                    case R.id.radioButton3:
+                        String vote3 = three.getText().toString().trim();
+                        int total3 = Integer.parseInt(vote3);
+                        total3 ++;
+                        three.setText(String.valueOf(total3));
+                        break;
+                    case R.id.radioButton4:
+                        String vote4 = four.getText().toString().trim();
+                        int total4 = Integer.parseInt(vote4);
+                        total4 ++;
+                        four.setText(String.valueOf(total4));
+                        break;
+                    case R.id.radioButton5:
+                        String vote5 = five.getText().toString().trim();
+                        int total5 = Integer.parseInt(vote5);
+                        total5 ++;
+                        five.setText(String.valueOf(total5));
+                        break;
+                }
+            }
+        });
+        spinner = findViewById(R.id.spinner3);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -65,54 +108,12 @@ public class todoActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
-        readItems();
-        itemsAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_1, items);
-        itemsList.setAdapter(itemsAdapter);
-        setupListViewListener();
     }
 
-    private void setupListViewListener() {
-        itemsList.setOnItemLongClickListener(
-                new AdapterView.OnItemLongClickListener() {
-                    @Override
-                    public boolean onItemLongClick(AdapterView<?> adapter,
-                                                   View item, int pos, long id) {
-                        items.remove(pos);
-                        itemsAdapter.notifyDataSetChanged();
-                        writeItems();
-                        return true;
-                    }
-
-                });
-    }
-
-    public void onAddItem(View v) {
-        EditText etNewItem = (EditText) findViewById(R.id.etNewItem);
-        String itemText = etNewItem.getText().toString();
-        itemsAdapter.add(itemText);
-        etNewItem.setText("");
-        writeItems();
-    }
-
-    private void readItems() {
-        File filesDir = getFilesDir();
-        File todoFile = new File(filesDir, "todo.txt");
-        try {
-            items = new ArrayList<String>(FileUtils.readLines(todoFile));
-        } catch (IOException e) {
-            items = new ArrayList<String>();
-        }
-    }
-
-    private void writeItems() {
-        File filesDir = getFilesDir();
-        File todoFile = new File(filesDir, "todo.txt");
-        try {
-            FileUtils.writeLines(todoFile, items);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void checkButton(View v){
+        int radioId = radioGroup.getCheckedRadioButtonId();
+        radioButton = findViewById(radioId);
+        Toast.makeText(this, "Selected Option: " + radioButton.getText(), Toast.LENGTH_SHORT).show();
     }
 
     private void openTodoActivity() {

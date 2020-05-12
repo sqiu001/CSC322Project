@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import androidx.viewpager.widget.ViewPager;
 public class VisitorBrowseActivity extends AppCompatActivity {
     Spinner spinner, spinner2;
     ViewPager projects;
+    Button group;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +21,14 @@ public class VisitorBrowseActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner2 = findViewById(R.id.spinner2);
         spinner.setVisibility(View.GONE);
+
+        group = findViewById(R.id.group);
+        group.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openVisitorGroupActivity();
+            }
+        });
         projects=(ViewPager) findViewById(R.id.all_projects);
         SliderAdapter sliderAdapter = new SliderAdapter(this);
         projects.setAdapter(sliderAdapter);
@@ -63,6 +73,10 @@ public class VisitorBrowseActivity extends AppCompatActivity {
 
     private void openComplainActivity() {
         Intent intent = new Intent(this,VisitorComplainActivity.class);
+        startActivity(intent);
+    }
+    private void openVisitorGroupActivity() {
+        Intent intent = new Intent(this,VisitorGroupActivity.class);
         startActivity(intent);
     }
 }

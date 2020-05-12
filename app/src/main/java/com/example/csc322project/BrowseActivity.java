@@ -14,6 +14,7 @@ import android.widget.Spinner;
 public class BrowseActivity extends AppCompatActivity {
     Spinner spinner, spinner2;
     ViewPager projects;
+    Button group;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,6 +22,8 @@ public class BrowseActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner2 = findViewById(R.id.spinner2);
         spinner2.setVisibility(View.GONE);
+        group = findViewById(R.id.group);
+        group.setVisibility(View.GONE);
         projects=(ViewPager) findViewById(R.id.all_projects);
         SliderAdapter sliderAdapter = new SliderAdapter(this);
         projects.setAdapter(sliderAdapter);
@@ -70,6 +73,7 @@ public class BrowseActivity extends AppCompatActivity {
         Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
+
     private void openLogoutActivity() {
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
@@ -92,7 +96,7 @@ public class BrowseActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {
@@ -101,10 +105,6 @@ public class BrowseActivity extends AppCompatActivity {
     }
     private void openVoteActivity(){
         Intent intent = new Intent(this,VoteActivity.class);
-        startActivity(intent);
-    }
-    private void openFeedbackActivity() {
-        Intent intent = new Intent(this,feedbackActivity.class);
         startActivity(intent);
     }
 }

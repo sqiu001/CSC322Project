@@ -2,7 +2,17 @@ package com.example.csc322project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.Toast;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,10 +21,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-
-
 import android.widget.SearchView;
-import android.widget.Spinner;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +30,7 @@ import java.util.List;
 public class InviteActivity extends AppCompatActivity {
     Spinner spinner;
     ArrayAdapter<String> arrayAdapter;
-
-
+    Button option;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +41,22 @@ public class InviteActivity extends AppCompatActivity {
         mylist.add("Tony");
         mylist.add("Sandy");
         mylist.add("Kevin");
-        arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, mylist);
+        mylist.add("Quetourah");
+        mylist.add("Spongebob");
+        mylist.add("Patrick");
+        mylist.add("Plankton");
+        mylist.add("Mr.Krabs");
+        mylist.add("Squidward");
+        mylist.add("test");
+        arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, mylist);
         listView.setAdapter(arrayAdapter);
+        option = findViewById(R.id.invite_option);
+        option.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openInviteOption();
+            }
+        });
         spinner = findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -59,10 +80,16 @@ public class InviteActivity extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
+                        openTodoActivity();
+                        break;
+                    case 8:
                         openHomeActivity();
                         break;
-                    default:
+                    case 9:
+                        openLogoutActivity();
                         break;
+                    default:
+                        return;
 
                 }
 
@@ -74,6 +101,8 @@ public class InviteActivity extends AppCompatActivity {
             }
         });
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.my_menu, menu);
@@ -96,9 +125,20 @@ public class InviteActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
 
     }
-
+    private void openInviteOption() {
+        Intent intent = new Intent(this,InviteOptions.class);
+        startActivity(intent);
+    }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
+    }
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
     private void openHomeActivity() {
-        Intent intent = new Intent(this,HomePage.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {
@@ -114,7 +154,7 @@ public class InviteActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {

@@ -10,12 +10,25 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Pattern;
 
 public class GroupActivity extends AppCompatActivity {
     Spinner spinner;
     private EditText edittext;
     private Button send;
     private TextView display;
+    List<String> tabooWords = Arrays.asList("idiot", "fuck", "dumb", "loser", "bitch", "stupid");
+    Map<String, Integer> map = new HashMap<>();
+    int score = 20;
+    int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +42,11 @@ public class GroupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String text = edittext.getText().toString();
+                for(String word : tabooWords) {
+                    Pattern rx = Pattern.compile("\\b" + word + "\\b", Pattern.CASE_INSENSITIVE);
+                    text = rx.matcher(text).replaceAll(new String(new char[word.length()]).replace('\0', '*'));
+                }
+                score-=1;
                 display.setVisibility(View.VISIBLE);
                 display.setText(text);
             }
@@ -47,6 +65,7 @@ public class GroupActivity extends AppCompatActivity {
                         openComplainActivity();
                         break;
                     case 4:
+                        openGroupActivity();
                         break;
                     case 5:
                         openScheduleActivity();
@@ -101,7 +120,7 @@ public class GroupActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {

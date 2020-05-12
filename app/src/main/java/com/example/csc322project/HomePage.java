@@ -12,7 +12,7 @@ import android.widget.Spinner;
 
 public class HomePage extends AppCompatActivity {
     Spinner spinner, spinner2;
-    ViewPager project_display;
+    ViewPager project_display, user_display;
     Button profileButton;
     Button feedbackBtn;
     @Override
@@ -22,6 +22,11 @@ public class HomePage extends AppCompatActivity {
         project_display = (ViewPager) findViewById(R.id.top_projects);
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
         project_display.setAdapter(viewPagerAdapter);
+
+        user_display = (ViewPager) findViewById(R.id.top_users);
+        UserPagerAdapter userPagerAdapter = new UserPagerAdapter(this);
+        user_display.setAdapter(userPagerAdapter);
+
         spinner2 = findViewById(R.id.spinner2);
         spinner2.setVisibility(View.GONE);
         feedbackBtn = findViewById(R.id.button);

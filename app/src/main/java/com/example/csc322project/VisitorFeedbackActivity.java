@@ -5,39 +5,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
 
-public class VisitorPageActivity extends AppCompatActivity {
-    Spinner spinner, spinner2;
-    ViewPager project_display, user_display;
-    Button feedbackBtn, profileBtn;
+public class VisitorFeedbackActivity extends AppCompatActivity {
+    Spinner spinner,spinner2;
+    private Button submitBtn;
+    private EditText subject_text, feedback;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home__page);
-        project_display = (ViewPager) findViewById(R.id.top_projects);
-        ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this);
-        project_display.setAdapter(viewPagerAdapter);
-
-        user_display = (ViewPager) findViewById(R.id.top_users);
-        UserPagerAdapter userPagerAdapter = new UserPagerAdapter(this);
-        user_display.setAdapter(userPagerAdapter);
-
-        spinner = (Spinner) findViewById(R.id.spinner);
+        setContentView(R.layout.activity_feedback);
+        subject_text = findViewById(R.id.user);
+        feedback=findViewById(R.id.feedback_text);
+        submitBtn= findViewById(R.id.feedback_submit);
+        spinner = findViewById(R.id.spinner);
         spinner.setVisibility(View.GONE);
-        profileBtn = findViewById(R.id.btnGoToProfile);
-        profileBtn.setVisibility(View.GONE);
-        feedbackBtn = findViewById(R.id.button);
-        feedbackBtn.setOnClickListener(new View.OnClickListener() {
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openVisitorFeedbackActivity();
+                sendMail();
             }
         });
-        spinner2 = (Spinner) findViewById(R.id.spinner2);
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -52,6 +44,7 @@ public class VisitorPageActivity extends AppCompatActivity {
                         openRegisterActivity();
                         break;
                     case 4:
+                        openHomeActivity();
                         break;
                     default:
                         return;
@@ -59,40 +52,51 @@ public class VisitorPageActivity extends AppCompatActivity {
                 }
 
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
+    }
+    //send email via email client
+    private void sendMail() {
+        String[] recipient = {"support@idk.com"};
+        String subject = subject_text.getText().toString();
+        String message = feedback.getText().toString();
 
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.putExtra(Intent.EXTRA_EMAIL, recipient);
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, message);
+
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Choose an email client"));
     }
 
-    private void openVisitorFeedbackActivity() {
-        Intent intent = new Intent(this,VisitorFeedbackActivity.class);
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
 
-    private void openRegisterActivity() {
-        Intent intent = new Intent(this,RegisterActivity.class);
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);
     }
 
+    private void openHomeActivity() {
+        Intent intent = new Intent(this,VisitorPageActivity.class);
+        startActivity(intent);
+    }
     private void openBrowseActivity() {
         Intent intent = new Intent(this,VisitorBrowseActivity.class);
         startActivity(intent);
-
     }
-
     private void openComplainActivity() {
         Intent intent = new Intent(this,VisitorComplainActivity.class);
         startActivity(intent);
     }
-    private void openFeedbackActivity() {
-        Intent intent = new Intent(this,feedbackActivity.class);
+    private void openRegisterActivity() {
+        Intent intent = new Intent(this,RegisterActivity.class);
         startActivity(intent);
     }
-
-
-
 }
