@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".VoteActivity">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Group Home"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.035"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#5324FF"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:entries="@array/features"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="412dp"
+        android:layout_height="635dp"
+        android:orientation="vertical"
+        app:layout_constraintLeft_creator="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_creator="1"
+        app:layout_constraintTop_creator="1"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        tools:layout_constraintLeft_creator="1">
+
+        <TabHost
+            android:id="@+id/tabhost"
+            android:layout_width="425dp"
+            android:layout_height="616dp"
+            tools:layout_editor_absoluteX="match_parent"
+            tools:layout_editor_absoluteY="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TabWidget
+                    android:id="@android:id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <FrameLayout
+                    android:id="@android:id/tabcontent"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:id="@+id/tab1"
+                        android:layout_width="match_parent"
+                        android:layout_height="577dp"
+                        android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/group_decisions"
+                            android:layout_width="409dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="22dp"
+                            android:layout_marginEnd="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:entries="@array/group_decision"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="534dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="534dp"
+                                android:orientation="vertical">
+
+                                <EditText
+                                    android:id="@+id/group_feedback"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="26dp"
+                                    android:layout_marginLeft="26dp"
+                                    android:layout_marginTop="122dp"
+                                    android:layout_marginEnd="27dp"
+                                    android:layout_marginRight="27dp"
+                                    android:ems="18"
+                                    android:hint="Comments on vote..."
+                                    android:inputType="textMultiLine"
+                                    android:textSize="24dp"
+                                    android:lines="5"/>
+
+                                <Button
+                                    android:id="@+id/button3"
+                                    android:layout_width="165dp"
+                                    android:layout_height="55dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_marginStart="122dp"
+                                    android:layout_marginLeft="122dp"
+                                    android:layout_marginTop="22dp"
+                                    android:background="@drawable/rounded_rectangle"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:padding="16dp"
+                                    android:text="Submit"
+                                    android:textAllCaps="true"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </ScrollView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tab2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+                        <Spinner
+                            android:id="@+id/member_decisions"
+                            android:layout_width="409dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="1dp"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginTop="22dp"
+                            android:layout_marginEnd="1dp"
+                            android:layout_marginRight="1dp"
+                            android:background="@drawable/rounded_rectangle"
+                            android:entries="@array/member_decision"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="534dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="534dp"
+                                android:orientation="vertical">
+
+                                <Spinner
+                                    android:id="@+id/members"
+                                    android:layout_width="209dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="30dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="42dp"
+                                    android:layout_marginEnd="1dp"
+                                    android:layout_marginRight="1dp"
+                                    android:background="@drawable/rounded_rectangle"
+                                    android:entries="@array/members"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.0"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/member_feedback"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="26dp"
+                                    android:layout_marginLeft="26dp"
+                                    android:layout_marginTop="2dp"
+                                    android:layout_marginEnd="27dp"
+                                    android:layout_marginRight="27dp"
+                                    android:ems="18"
+                                    android:hint="Comments on vote..."
+                                    android:inputType="textMultiLine"
+                                    android:textSize="24dp"
+                                    android:lines="5"/>
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
+                                <Button
+                                    android:id="@+id/button5"
+                                    android:layout_width="165dp"
+                                    android:layout_height="55dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/rounded_rectangle"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:padding="16dp"
+                                    android:text="Remove"
+                                    android:textAllCaps="true"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="16sp"
+                                    android:layout_marginTop="20dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.155"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.961"/>
+
+                                <Button
+                                    android:id="@+id/button4"
+                                    android:layout_width="165dp"
+                                    android:layout_height="55dp"
+                                    android:layout_centerHorizontal="true"
+                                    android:background="@drawable/rounded_rectangle"
+                                    android:fontFamily="sans-serif-medium"
+                                    android:padding="16dp"
+                                    android:text="Submit"
+                                    android:textAllCaps="true"
+                                    android:textColor="#FFFFFF"
+                                    android:textSize="16sp"
+                                    android:layout_marginTop="20dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.9"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.961"/>
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </LinearLayout>
+                        </ScrollView>
+
+
+                    </LinearLayout>
+                </FrameLayout>
+            </LinearLayout>
+
+        </TabHost>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -78,6 +78,7 @@ public class BrowseActivity extends AppCompatActivity {
         Intent intent = new Intent(this,todoActivity.class);
         startActivity(intent);
     }
+
     private void openLogoutActivity() {
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);

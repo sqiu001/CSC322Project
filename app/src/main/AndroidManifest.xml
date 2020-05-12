@@ -14,10 +14,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".GroupFeedbackActivity"/>
         <activity
             android:name=".ProfilePageActivity"
             android:label="@string/title_activity_profile_page"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".VoteActivity" />
         <activity android:name=".Schedule" />
         <activity android:name=".ComplainActivity" />
@@ -29,7 +30,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -46,8 +46,8 @@
         <activity android:name=".pollActivity"/>
         <activity android:name=".recordActivity"/>
         <activity android:name=".GridViewActivity"/>
-        <activity android:name=".PopUpActivity" android:theme = "@style/AppTheme.PopMe"></activity>
-        <activity android:name=".VisitorFeedbackActivity"></activity>
+        <activity android:name=".PopUpActivity" android:theme = "@style/AppTheme.PopMe"/>
+        <activity android:name=".VisitorFeedbackActivity"/>
     </application>
 
 </manifest>

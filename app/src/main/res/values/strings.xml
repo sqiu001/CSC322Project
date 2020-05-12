@@ -13,7 +13,20 @@
         <item>Return</item>
         <item>Logout</item>
     </string-array>
-
+    <string-array name="group_decision">
+        <item>Close Group</item>
+        <item>Evaluate Group</item>
+    </string-array>
+    <string-array name="members">
+        <item>Hongfei</item>
+        <item>Kevin</item>
+        <item>Quetourah</item>
+        <item>Sandy</item>
+    </string-array>
+    <string-array name="member_decision">
+        <item>Remove Member</item>
+        <item>Give Feedback</item>
+    </string-array>
     <string-array name="features_visitor">
         <item>Selection</item>
         <item>Browse</item>

@@ -61,6 +61,7 @@ public class ProfilePageActivity extends AppCompatActivity {
                         openInviteActivity();
                         break;
                     case 3:
+                        openComplainActivity();
                         break;
                     case 4:
                         openGroupActivity();

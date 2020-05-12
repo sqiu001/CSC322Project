@@ -81,6 +81,7 @@ public class VisitorPageActivity extends AppCompatActivity {
     private void openBrowseActivity() {
         Intent intent = new Intent(this,VisitorBrowseActivity.class);
         startActivity(intent);
+
     }
 
     private void openComplainActivity() {
