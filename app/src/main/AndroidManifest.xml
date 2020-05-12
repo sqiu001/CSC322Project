@@ -48,6 +48,7 @@
         <activity android:name=".recordActivity"/>
         <activity android:name=".GridViewActivity"/>
         <activity android:name=".PopUpActivity" android:theme = "@style/AppTheme.PopMe"/>
+        <activity android:name=".InvitationPopupActivity" android:theme = "@style/AppTheme.PopMe"/>
         <activity android:name=".VisitorFeedbackActivity"/>
     </application>
 

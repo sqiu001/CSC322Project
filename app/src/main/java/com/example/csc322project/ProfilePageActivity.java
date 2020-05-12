@@ -33,7 +33,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class ProfilePageActivity extends AppCompatActivity {
     private static int RESULT_LOAD_IMAGE = 1;
     Spinner spinner, spinner2;
-    FloatingActionButton btn;
+    FloatingActionButton btn, btn2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -46,6 +46,14 @@ public class ProfilePageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), PopUpActivity.class);
+                startActivity(intent);
+            }
+        });
+        btn2 = findViewById(R.id.pending);
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), InvitationPopupActivity.class);
                 startActivity(intent);
             }
         });
