@@ -49,8 +49,10 @@
         <activity android:name=".GridViewActivity"/>
         <activity android:name=".PopUpActivity" android:theme = "@style/AppTheme.PopMe"/>
         <activity android:name=".VisitorFeedbackActivity" />
-        <activity android:name=".VoteVIP"  />
-        <activity android:name=".VoteSuper"  />
+        <activity android:name=".VoteVIP"
+            android:parentActivityName=".VoteActivity"/>
+        <activity android:name=".VoteSuper"
+            android:parentActivityName=".VoteActivity"/>
         />
     </application>
 

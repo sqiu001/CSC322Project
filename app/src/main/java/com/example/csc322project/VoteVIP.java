@@ -10,5 +10,7 @@ public class VoteVIP extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote_v_i_p);
+        getSupportActionBar().setTitle("VoteVIP");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 }
