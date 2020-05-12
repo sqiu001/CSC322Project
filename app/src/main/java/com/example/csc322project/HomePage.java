@@ -90,10 +90,7 @@ public class HomePage extends AppCompatActivity {
         Intent intent = new Intent(this,ProfilePageActivity.class);
         startActivity(intent);
     }
-    private void openGroupFeedbackActivity() {
-        Intent intent = new Intent(this,GroupFeedbackActivity.class);
-        startActivity(intent);
-    }
+
     private void openFeedbackActivity() {
         Intent intent = new Intent(this,feedbackActivity.class);
         startActivity(intent);
