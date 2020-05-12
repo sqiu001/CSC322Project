@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class VisitorGroupActivity extends AppCompatActivity {
     GridView gridView;
+    Button groupVotes;
     String[] postName = {"Finished the Login UI", "Working on User Profile", "Check out the invite page","Check out this logo"};
     int[] postImages = {R.drawable.login, R.drawable.profile, R.drawable.invite, R.drawable.react};
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,6 +35,18 @@ public class VisitorGroupActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        groupVotes = findViewById(R.id.group_votes);
+        groupVotes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToGroupFeedbackActivity();
+            }
+        });
+
+    }
+    private void goToGroupFeedbackActivity() {
+        Intent intent = new Intent(this,GroupFeedbackActivity.class);
+        startActivity(intent);
     }
     private class CustomAdapter extends BaseAdapter {
 
