@@ -52,7 +52,7 @@ There are two methods to deploy this application on a live system
 1. Create a virtual device via ```Available Devices -> Open AVD Manager -> Create Virtual Devices -> Select Hardware desired```
 2. Connect Android device. Instructions are [provided](https://developer.android.com/studio/run/device).
 ## Demo
-<img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" alt="Registered Users"/> <img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" alt="Visitors"/> 
+<img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Registered Users"/> <img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Visitors"/> 
 
 ## Authors
 * [Sandy Qiu](https://github.com/sqiu001)
