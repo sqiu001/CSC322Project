@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class VisitorGroupActivity extends AppCompatActivity {
     GridView gridView;
-    Button groupVotes;
+    Button groupVotes, voteBtn;
     String[] postName = {"Finished the Login UI", "Working on User Profile", "Check out the invite page","Check out this logo"};
     int[] postImages = {R.drawable.login, R.drawable.profile, R.drawable.invite, R.drawable.react};
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,6 +42,8 @@ public class VisitorGroupActivity extends AppCompatActivity {
                 goToGroupFeedbackActivity();
             }
         });
+        voteBtn = findViewById(R.id.group_votes);
+        voteBtn.setVisibility(View.GONE);
 
     }
     private void goToGroupFeedbackActivity() {
