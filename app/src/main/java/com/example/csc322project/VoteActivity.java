@@ -61,17 +61,18 @@ public class VoteActivity extends AppCompatActivity {
 
         Button myButton1 = findViewById(R.id.button1);
         myButton1.setOnClickListener(new View.OnClickListener() {
-
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(VoteActivity.this, VoteSuper.class));
+            public void onClick(View view) {
+                Intent intent = new Intent(VoteActivity.this,VoteSuper.class);
+                startActivity(intent);
+
             }
         });
         Button myButton2 = findViewById(R.id.button2);
         myButton2.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
                 startActivity(new Intent(VoteActivity.this, VoteVIP.class));
             }
         });
@@ -79,18 +80,11 @@ public class VoteActivity extends AppCompatActivity {
         myButton3.setOnClickListener(new View.OnClickListener() {
 
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(VoteActivity.this, VoteGroup.class));
+            public void onClick(View view) {
+                startActivity(new Intent(VoteActivity.this, GroupPageActivity.class));
             }
         });
-        Button myButton4 = findViewById(R.id.button4);
-        myButton4.setOnClickListener(new View.OnClickListener() {
 
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(VoteActivity.this, VoteGroupMember.class));
-            }
-        });
     }
 
     private void openLogoutActivity() {

@@ -15,11 +15,108 @@
         android:layout_marginLeft="151dp"
         android:layout_marginRight="152dp"
         android:layout_marginStart="151dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="36dp"
         android:text="Super User(Vote)"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:entries="@array/Super_Candidates"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+    <CheckBox
+        android:id="@+id/Check_yes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="90dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="27dp"
+        android:text="Yes"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/Check_no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+
+    <CheckBox
+        android:id="@+id/Check_no"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginLeft="90dp"
+        android:layout_marginRight="64dp"
+        android:layout_marginStart="90dp"
+        android:layout_marginTop="27dp"
+        android:text="NO"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Check_yes"
+        app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="265dp"
+        android:layout_height="168dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="73dp"
+        android:layout_marginLeft="73dp"
+        android:layout_marginRight="73dp"
+        android:layout_marginStart="73dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="Comment"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="78dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="51dp"
+        android:text="Check"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <Button
+        android:id="@+id/button9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="78dp"
+        android:layout_marginEnd="77dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="77dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="51dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button8"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

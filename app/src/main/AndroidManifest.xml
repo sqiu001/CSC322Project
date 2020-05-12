@@ -48,7 +48,10 @@
         <activity android:name=".recordActivity"/>
         <activity android:name=".GridViewActivity"/>
         <activity android:name=".PopUpActivity" android:theme = "@style/AppTheme.PopMe"/>
-        <activity android:name=".VisitorFeedbackActivity"/>
+        <activity android:name=".VisitorFeedbackActivity" />
+        <activity android:name=".VoteVIP"  />
+        <activity android:name=".VoteSuper"  />
+        />
     </application>
 
 </manifest>
