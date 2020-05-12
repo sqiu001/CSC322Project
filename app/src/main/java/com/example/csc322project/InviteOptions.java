@@ -189,7 +189,7 @@ public class InviteOptions extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {

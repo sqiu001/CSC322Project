@@ -123,36 +123,36 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/btnpoll"
-        android:layout_width="131dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="43dp"
-        android:layout_marginRight="43dp"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/rounded_rectangle"
-        android:padding="16dp"
-        android:text="Poll"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+<!--    <Button-->
+<!--        android:id="@+id/btnpoll"-->
+<!--        android:layout_width="131dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginEnd="43dp"-->
+<!--        android:layout_marginRight="43dp"-->
+<!--        android:layout_marginBottom="25dp"-->
+<!--        android:background="@drawable/rounded_rectangle"-->
+<!--        android:padding="16dp"-->
+<!--        android:text="Poll"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textStyle="bold" />-->
 
-    <Button
-        android:id="@+id/recordbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="43dp"
-        android:layout_marginLeft="43dp"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/rounded_rectangle"
-        android:padding="16dp"
-        android:text="Group Record"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+<!--    <Button-->
+<!--        android:id="@+id/recordbtn"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentLeft="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginStart="43dp"-->
+<!--        android:layout_marginLeft="43dp"-->
+<!--        android:layout_marginBottom="25dp"-->
+<!--        android:background="@drawable/rounded_rectangle"-->
+<!--        android:padding="16dp"-->
+<!--        android:text="Group Record"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textStyle="bold" />-->
 
 </RelativeLayout>

@@ -65,6 +65,7 @@ public class GroupActivity extends AppCompatActivity {
                         openComplainActivity();
                         break;
                     case 4:
+                        openGroupActivity();
                         break;
                     case 5:
                         openScheduleActivity();
@@ -119,7 +120,7 @@ public class GroupActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {

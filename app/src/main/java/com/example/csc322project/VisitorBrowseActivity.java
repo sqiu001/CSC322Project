@@ -21,6 +21,7 @@ public class VisitorBrowseActivity extends AppCompatActivity {
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner2 = findViewById(R.id.spinner2);
         spinner.setVisibility(View.GONE);
+
         group = findViewById(R.id.group);
         group.setOnClickListener(new View.OnClickListener() {
             @Override
