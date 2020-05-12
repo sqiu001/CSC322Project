@@ -19,18 +19,33 @@ import java.util.concurrent.TimeUnit;
 
 public class GroupFeedbackActivity extends AppCompatActivity {
     Spinner spinner;
-    Button submitBtn;
-    private EditText feedback;
+    Button submitBtn1,submitBtn2,submitBtn3;
+    private EditText feedback1,feedback2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group_feedback);
-        feedback = findViewById(R.id.group_feedback);
-        submitBtn= findViewById(R.id.button3);
-        submitBtn.setOnClickListener(new View.OnClickListener() {
+        feedback1 = findViewById(R.id.group_feedback);
+        feedback2 = findViewById(R.id.member_feedback);
+        submitBtn1= findViewById(R.id.button3);
+        submitBtn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendFeedbackMessage();
+            }
+        });
+        submitBtn2= findViewById(R.id.button4);
+        submitBtn3= findViewById(R.id.button5);
+        submitBtn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendFeedbackMessageTwo();
+            }
+        });
+        submitBtn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendFeedbackMessageThree();
             }
         });
         spinner = (Spinner) findViewById(R.id.spinner);
@@ -90,20 +105,37 @@ public class GroupFeedbackActivity extends AppCompatActivity {
     }
     private void sendFeedbackMessage() {
         final ProgressDialog dialog = new ProgressDialog(GroupFeedbackActivity.this);
-        final String text = feedback.getText().toString();
+        final String text = feedback1.getText().toString();
 
         if (text.equals("")) {
             Toast.makeText(getApplicationContext(), "Field is empty", Toast.LENGTH_SHORT).show();
         }
         else {
-            dialog.setTitle("Feedback Received");
-            dialog.setMessage("Your feedback has been recorded.");
-            dialog.show();
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Toast.makeText(getApplicationContext(), "Feedback Submitted", Toast.LENGTH_SHORT).show();
+            goToGroupFeedbackActivity();
+        }
+    }
+    private void sendFeedbackMessageTwo() {
+        final ProgressDialog dialog = new ProgressDialog(GroupFeedbackActivity.this);
+        final String text = feedback2.getText().toString();
+
+        if (text.equals("")) {
+            Toast.makeText(getApplicationContext(), "Field is empty", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Feedback Submitted", Toast.LENGTH_SHORT).show();
+            goToGroupFeedbackActivity();
+        }
+    }
+    private void sendFeedbackMessageThree() {
+        final ProgressDialog dialog = new ProgressDialog(GroupFeedbackActivity.this);
+        final String text = feedback2.getText().toString();
+
+        if (text.equals("")) {
+            Toast.makeText(getApplicationContext(), "Field is empty", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getApplicationContext(), "Vote Submitted", Toast.LENGTH_SHORT).show();
             goToGroupFeedbackActivity();
         }
     }
