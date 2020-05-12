@@ -12,7 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 
 public class VisitorBrowseActivity extends AppCompatActivity {
     Spinner spinner, spinner2;
-    ViewPager projects;
+    ViewPager projects, users;
     Button group;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +32,9 @@ public class VisitorBrowseActivity extends AppCompatActivity {
         projects=(ViewPager) findViewById(R.id.all_projects);
         SliderAdapter sliderAdapter = new SliderAdapter(this);
         projects.setAdapter(sliderAdapter);
+        users = (ViewPager) findViewById(R.id.all_users);
+        allUsersAdapter userPagerAdapter = new allUsersAdapter(this);
+        users.setAdapter(userPagerAdapter);
         spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {

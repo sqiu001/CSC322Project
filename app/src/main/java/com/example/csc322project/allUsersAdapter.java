@@ -11,14 +11,13 @@ import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-public class ViewPagerAdapter extends PagerAdapter {
-
+public class allUsersAdapter extends PagerAdapter {
     private Context context;
     private LayoutInflater layoutInflater;
-    private Integer [] images = {R.drawable.slide1,R.drawable.slide2,R.drawable.slide3};
-    private String [] title = {"Top Project 1" , "Top Project 2", "Top Project 3"};
+    private Integer [] images = {R.drawable.man,R.drawable.man,R.drawable.man,R.drawable.man,R.drawable.man,R.drawable.man, R.drawable.man};
+    private String [] title = {"Sandy" , "Quetourah", "Hong", "Kevin", "Patrick", "Plankton", "Mr.Krabs"};
 
-    public ViewPagerAdapter(Context context){
+    public allUsersAdapter(Context context){
         this.context=context;
     }
 
@@ -37,9 +36,9 @@ public class ViewPagerAdapter extends PagerAdapter {
         layoutInflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.custom_layout, container, false);
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
-        TextView project_title = view.findViewById(R.id.name);
+        TextView user_title = view.findViewById(R.id.name);
         imageView.setImageResource(images[position]);
-        project_title.setText(title[position]);
+        user_title.setText(title[position]);
 
         container.addView(view);
         return view;

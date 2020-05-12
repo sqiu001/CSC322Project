@@ -11,14 +11,19 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class GroupPageActivity extends AppCompatActivity {
     GridView gridView;
-    String[] postName = {"Finished the Login UI", "Working on User Profile", "Check out the invite page","Check out this logo"};
-    int[] postImages = {R.drawable.login, R.drawable.profile, R.drawable.invite, R.drawable.react};
+    List<String> postName = Arrays.asList("Finished the Login UI", "Working on User Profile", "Check out the invite page","Check out this logo");
+    List<Integer> postImages = Arrays.asList(R.drawable.login, R.drawable.profile, R.drawable.invite, R.drawable.react);
     Spinner spinner, spinner2;
     Button poll, record, chat, groupVotes;
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,6 +60,7 @@ public class GroupPageActivity extends AppCompatActivity {
                 goToGroupFeedbackActivity();
             }
         });
+
         gridView = findViewById(R.id.grid);
         GroupPageActivity.customAdapter customAdapter = new GroupPageActivity.customAdapter();
         gridView.setAdapter(customAdapter);
@@ -62,12 +68,11 @@ public class GroupPageActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(getApplicationContext(), GridViewActivity.class);
-                intent.putExtra("name", postName[position]);
-                intent.putExtra("image", postImages[position]);
+                intent.putExtra("name", postName.get(position));
+                intent.putExtra("image", postImages.get(position));
                 startActivity(intent);
             }
         });
-
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -115,7 +120,7 @@ public class GroupPageActivity extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return postImages.length;
+            return postImages.size();
         }
 
         @Override
@@ -133,8 +138,8 @@ public class GroupPageActivity extends AppCompatActivity {
             View view = getLayoutInflater().inflate(R.layout.activity_post, null);
             TextView name = view.findViewById(R.id.posttext);
             ImageView image = view.findViewById(R.id.postimage);
-            name.setText(postName[position]);
-            image.setImageResource(postImages[position]);
+            name.setText(postName.get(position));
+            image.setImageResource(postImages.get(position));
             return view;
         }
     }

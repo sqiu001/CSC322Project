@@ -35,9 +35,9 @@ public class UserPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(ViewGroup container, int position){
         layoutInflater= (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View view = layoutInflater.inflate(R.layout.top_users, container, false);
-        ImageView imageView = (ImageView) view.findViewById(R.id.user_image);
-        TextView user_title = view.findViewById(R.id.topuser_name);
+        View view = layoutInflater.inflate(R.layout.custom_layout, container, false);
+        ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
+        TextView user_title = view.findViewById(R.id.name);
         imageView.setImageResource(images[position]);
         user_title.setText(title[position]);
 
