@@ -56,6 +56,8 @@
             android:parentActivityName=".VoteActivity"/>
         />
         <activity android:name=".VoteProject"/>
+        <activity android:name=".SuperUserActivity"/>
+        <activity android:name=".Registration"/>
     </application>
 
 </manifest>

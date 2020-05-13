@@ -47,6 +47,10 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
                     Home();
                 }
+                else if((username.equals("super") && password.equals("super"))){
+                    Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
+                    SuperAccount();
+                }
                 else
                     Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
                //Login();
@@ -54,6 +58,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    private void SuperAccount() {
+        Intent intent = new Intent(this,SuperUserActivity.class);
+        startActivity(intent);
+    }
+
     private void goBack(){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
