@@ -81,7 +81,7 @@ public class VoteActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(VoteActivity.this, GroupPageActivity.class));
+                startActivity(new Intent(VoteActivity.this, GroupFeedbackActivity.class));
             }
         });
 
@@ -122,6 +122,10 @@ public class VoteActivity extends AppCompatActivity {
     }
     private void openTodoActivity() {
         Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
+    }
+    private void openGroupFeedbackActivity() {
+        Intent intent = new Intent(this,GroupFeedbackActivity.class);
         startActivity(intent);
     }
 

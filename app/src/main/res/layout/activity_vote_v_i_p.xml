@@ -118,7 +118,7 @@
         android:layout_marginRight="17dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="21dp"
-        android:text="Rate the VIP in your groups or your friend list, 5 is best and 1 is wrost"
+        android:text="Rate the VIP in your groups or your friend list, 5 is best and 1 is worst"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
