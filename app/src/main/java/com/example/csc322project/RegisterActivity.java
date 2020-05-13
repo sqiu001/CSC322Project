@@ -116,6 +116,8 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
         sender.start();
+        Intent intent = new Intent(this,RegisterActivity.class);
+        startActivity(intent);
     }
 
 }

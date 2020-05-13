@@ -126,6 +126,7 @@ public class ComplainActivity extends AppCompatActivity {
                 }
             });
             sender.start();
+            openComplainActivity();
         }
     }
     private void openTodoActivity() {
