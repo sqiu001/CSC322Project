@@ -111,14 +111,14 @@
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="374dp"
-        android:layout_height="31dp"
+        android:layout_width="369dp"
+        android:layout_height="33dp"
         android:layout_marginEnd="17dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="17dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="21dp"
-        android:text="Rate the VIP in your groups or your friend list"
+        android:text="Rate the VIP in your groups or your friend list, 5 is best and 1 is wrost"
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
