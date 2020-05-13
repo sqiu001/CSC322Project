@@ -44,9 +44,9 @@ A step by step series of that tell you how to get a development env running
 * [x] Track group task assignments
 * [x] Feedback function
 * [x] User profile 
-* [ ] Vote to close group and conduct group evaluation
-* [ ] Vote to warn/praise group member
-* [ ] Vote to remove group member
+* [x] Vote to close group and conduct group evaluation
+* [x] Vote to warn/praise group member
+* [x] Vote to remove group member
 ## Deployment
 There are two methods to deploy this application on a live system
 1. Create a virtual device via ```Available Devices -> Open AVD Manager -> Create Virtual Devices -> Select Hardware desired```
