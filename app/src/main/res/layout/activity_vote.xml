@@ -69,5 +69,14 @@
         android:background="#647AF4"
         android:text="Group" />
 
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="405dp"
+        android:layout_height="102dp"         
+        android:layout_below="@id/button3"
+        android:layout_marginTop="20dp"
+        android:background="#8F64DF"
+        android:text="Project" />
+
 
 </RelativeLayout>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    tools:context=".VoteProject">
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Project(Vote)"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView8"
+        android:layout_centerHorizontal="true"
+        android:text="Click on the button to vote on the project"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/buttonP1"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/textView9"
+        android:text="Project 1"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/score1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView9"
+        android:layout_toRightOf="@+id/buttonP1"
+        android:text="score: 0"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/buttonP2"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonP1"
+        android:text="Project 2"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/score2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/score1"
+        android:layout_toRightOf="@+id/buttonP2"
+        android:text="score: 0"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/buttonP3"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonP2"
+        android:text="Project 3"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/score3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/score2"
+        android:layout_toRightOf="@+id/buttonP3"
+        android:text="score: 0"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/buttonP4"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonP3"
+        android:text="Project 4"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/score4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/score3"
+        android:layout_toRightOf="@+id/buttonP3"
+        android:text="score: 0"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/buttonP5"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonP4"
+        android:text="Project 5"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/score5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/score4"
+        android:layout_toRightOf="@+id/buttonP5"
+        android:text="score: 0"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/buttonP6"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonP5"
+        android:text="Project 6"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/score6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/score5"
+        android:layout_toRightOf="@+id/buttonP6"
+        android:text="score: 0"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/buttonP7"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/buttonP6"
+        android:text="Project 7"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/score7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/score6"
+        android:layout_toRightOf="@+id/buttonP7"
+        android:text="score: 0"
+        android:textSize="35dp" />
+
+    <Button
+        android:id="@+id/buttonHome"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="Return to Home Page"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonEnd"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:text="Vote"
+        android:background="@drawable/rounded_rectangle"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

@@ -85,6 +85,14 @@ public class VoteActivity extends AppCompatActivity {
             }
         });
 
+        Button myButton4 = findViewById(R.id.button4);
+        myButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(VoteActivity.this, VoteProject.class));
+            }
+        });
+
     }
 
     private void openLogoutActivity() {
