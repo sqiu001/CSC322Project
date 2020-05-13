@@ -25,6 +25,7 @@ public class Registration extends AppCompatActivity {
         reject = findViewById(R.id.reject);
         reject_2 = findViewById(R.id.reject3);
         back = findViewById(R.id.goback);
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
