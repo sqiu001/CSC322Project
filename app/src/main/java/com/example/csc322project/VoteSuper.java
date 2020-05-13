@@ -15,7 +15,7 @@ import android.widget.Toast;
 import javax.xml.datatype.Duration;
 
 public class VoteSuper extends AppCompatActivity {
-    Boolean correct = true;
+    Boolean correct = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,9 @@ public class VoteSuper extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Submitted Successfully!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this,VoteActivity.class);
             startActivity(intent);
+        }
+        else{
+            Toast.makeText(getApplicationContext(), "Please check first!", Toast.LENGTH_SHORT).show();
         }
     }
 }
