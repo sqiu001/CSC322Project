@@ -56,7 +56,7 @@ A step by step series of that tell you how to get a development env running
 1. Super User (Username: super, Password: super)
 2. Ordinary User (Username: test, Password: 1234)
 ## Demo
-<img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Registered Users"/> <img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Visitors"/> <img src="https://i.imgur.com/B9TZoud.gif" width="200" title="Super User"/> 
+<img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Registered Users"/> <img src="https://i.imgur.com/4eQSeLW.gif" width="200" title="Visitors"/> <img src="https://i.imgur.com/B9TZoud.gif" width="200" title="Super User"/> 
 
 ## Authors
 * [Sandy Qiu](https://github.com/sqiu001)
