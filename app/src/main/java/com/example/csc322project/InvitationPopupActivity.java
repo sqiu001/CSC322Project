@@ -36,6 +36,8 @@ public class InvitationPopupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(InvitationPopupActivity.this, "Invitation Accepted", Toast.LENGTH_SHORT).show();
+                finish();
+                startActivity(getIntent());
             }
         });
 
@@ -48,6 +50,8 @@ public class InvitationPopupActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(InvitationPopupActivity.this, "Invitation Declined", Toast.LENGTH_SHORT).show();
+                    finish();
+                    startActivity(getIntent());
                 }
             }
         });
@@ -62,6 +66,11 @@ public class InvitationPopupActivity extends AppCompatActivity {
         params.x=0;
         params.y=-20;
         getWindow().setAttributes(params);
+    }
+
+    private void gotoInvitationPopupActivity() {
+        Intent intent = new Intent(this,InvitationPopupActivity.class);
+        startActivity(intent);
     }
 
 }

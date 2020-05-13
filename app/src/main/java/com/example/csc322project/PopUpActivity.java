@@ -1,5 +1,6 @@
 package com.example.csc322project;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -25,7 +26,8 @@ public class PopUpActivity extends AppCompatActivity {
         save = findViewById(R.id.update);
         oldPw = findViewById(R.id.old);
         newPw = findViewById(R.id.newpw);
-        account.add("test, 1234");
+        account.add("test");
+        account.add("1234");
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,4 +57,9 @@ public class PopUpActivity extends AppCompatActivity {
         params.y=-20;
         getWindow().setAttributes(params);
     }
+    private void gotoPopUpActivity() {
+        Intent intent = new Intent(this,PopUpActivity.class);
+        startActivity(intent);
+    }
+
 }
