@@ -35,7 +35,7 @@ public class InviteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_invite);
-        ListView listView = findViewById(R.id.my_list);
+        ListView listView = findViewById(R.id.List);
         List<String> mylist = new ArrayList<>();
         mylist.add("John");
         mylist.add("Tony");

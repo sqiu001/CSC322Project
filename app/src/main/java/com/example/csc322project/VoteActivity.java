@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 
 public class VoteActivity extends AppCompatActivity {
@@ -57,7 +58,35 @@ public class VoteActivity extends AppCompatActivity {
 
             }
         });
+
+        Button myButton1 = findViewById(R.id.button1);
+        myButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VoteActivity.this,VoteSuper.class);
+                startActivity(intent);
+
+            }
+        });
+        Button myButton2 = findViewById(R.id.button2);
+        myButton2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VoteActivity.this, VoteVIP.class));
+            }
+        });
+        Button myButton3 = findViewById(R.id.button3);
+        myButton3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VoteActivity.this, GroupPageActivity.class));
+            }
+        });
+
     }
+
     private void openLogoutActivity() {
         Intent intent = new Intent(this,LoginActivity.class);
         startActivity(intent);

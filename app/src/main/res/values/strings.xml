@@ -34,6 +34,15 @@
         <item>Register</item>
         <item>Return</item>
     </string-array>
+    <string-array name="Super_Candidates">
+        <item>Candidates</item>
+        <item>Liam</item>
+        <item>Noah</item>
+        <item>Emma</item>
+        <item>Olivia</item>
+        <item>William</item>
+        <item>Ava</item>
+    </string-array>
     <string name="title_activity_profile_page">ProfilePageActivity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
