@@ -69,6 +69,7 @@ public class GroupFeedbackActivity extends AppCompatActivity {
                         openScheduleActivity();
                         break;
                     case 6:
+                        openVoteActivity();
                         break;
                     case 7:
                         openTodoActivity();

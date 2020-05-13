@@ -25,7 +25,7 @@ public class PopUpActivity extends AppCompatActivity {
         save = findViewById(R.id.update);
         oldPw = findViewById(R.id.old);
         newPw = findViewById(R.id.newpw);
-        account.add("test");
+        account.add("test, 1234");
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
