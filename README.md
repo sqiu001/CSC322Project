@@ -48,11 +48,15 @@ A step by step series of that tell you how to get a development env running
 * [x] Vote to warn/praise group member
 * [x] Vote to remove group member
 ## Deployment
-There are two methods to deploy this application on a live system
+#### There are two methods to deploy this application on a live system
 1. Create a virtual device via ```Available Devices -> Open AVD Manager -> Create Virtual Devices -> Select Hardware desired```
 2. Connect Android device. Instructions are [provided](https://developer.android.com/studio/run/device).
+
+#### Login Credentials
+1. Super User (Username: super, Password: super)
+2. Ordinary User (Username: test, Password: 1234)
 ## Demo
-<img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Registered Users"/> <img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Visitors"/> 
+<img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Registered Users"/> <img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Visitors"/> <img src="https://cdn.pixabay.com/photo/2017/12/03/20/29/android-2995824_1280.png" width="200" title="Super User"/> 
 
 ## Authors
 * [Sandy Qiu](https://github.com/sqiu001)
