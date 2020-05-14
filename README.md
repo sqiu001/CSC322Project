@@ -27,7 +27,7 @@ A step by step series of that tell you how to get a development env running
 > * Fork this repository
 > * On Android Studio enable Version Control System via ```VCS -> Enable Version Control System```
 > * Then ```File -> New -> Project from Version Control -> Git -> Select Repository```
-## [Features](docs/Memo.md)
+## [Features](Memo.md)
 * [x] Register and Login
 * [x] Browse through projects
 * [x] Invite users
