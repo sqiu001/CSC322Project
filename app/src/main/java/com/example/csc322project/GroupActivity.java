@@ -6,15 +6,51 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.regex.Pattern;
 
 public class GroupActivity extends AppCompatActivity {
     Spinner spinner;
+    private EditText edittext;
+    private Button send;
+    private TextView display;
+    List<String> tabooWords = Arrays.asList("idiot", "fuck", "dumb", "loser", "bitch", "stupid");
+    Map<String, Integer> map = new HashMap<>();
+    int score = 20;
+    int count;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
         spinner = (Spinner) findViewById(R.id.spinner);
+        edittext = (EditText) findViewById(R.id.edittext_chatbox);
+        display = (TextView) findViewById(R.id.message);
+        display.setVisibility(View.GONE);
+        send = findViewById(R.id.button_chatbox_send);
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = edittext.getText().toString();
+                for(String word : tabooWords) {
+                    Pattern rx = Pattern.compile("\\b" + word + "\\b", Pattern.CASE_INSENSITIVE);
+                    text = rx.matcher(text).replaceAll(new String(new char[word.length()]).replace('\0', '*'));
+                }
+                score-=1;
+                display.setVisibility(View.VISIBLE);
+                display.setText(text);
+            }
+        });
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -29,6 +65,7 @@ public class GroupActivity extends AppCompatActivity {
                         openComplainActivity();
                         break;
                     case 4:
+                        openGroupActivity();
                         break;
                     case 5:
                         openScheduleActivity();
@@ -37,7 +74,13 @@ public class GroupActivity extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
+                        openTodoActivity();
+                        break;
+                    case 8:
                         openHomeActivity();
+                        break;
+                    case 9:
+                        openLogoutActivity();
                         break;
                     default:
                         return;
@@ -52,8 +95,16 @@ public class GroupActivity extends AppCompatActivity {
             }
         });
     }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
+    }
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
     private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {
@@ -69,7 +120,7 @@ public class GroupActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {

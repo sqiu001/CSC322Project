@@ -2,19 +2,38 @@ package com.example.csc322project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class ComplainActivity extends AppCompatActivity {
-    Spinner spinner;
+    Spinner spinner, spinner2;
+    private Button submitBtn;
+    private EditText subject_text, complain;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_complain);
+        subject_text = findViewById(R.id.user_complain);
+        complain=findViewById(R.id.complain_text);
+        submitBtn= findViewById(R.id.complain_submit);
         spinner = (Spinner) findViewById(R.id.spinner);
+        spinner2 = findViewById(R.id.spinner2);
+        spinner2.setVisibility(View.GONE);
+        submitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendMessage();
+            }
+        });
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -37,7 +56,13 @@ public class ComplainActivity extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
+                        openTodoActivity();
+                        break;
+                    case 8:
                         openHomeActivity();
+                        break;
+                    case 9:
+                        openLogoutActivity();
                         break;
                     default:
                         return;
@@ -52,8 +77,70 @@ public class ComplainActivity extends AppCompatActivity {
             }
         });
     }
+//send email via email client
+//    private void sendMail() {
+//        String[] recipient = {"support@idk.com"};
+//        String subject = subject_text.getText().toString();
+//        String message = complain.getText().toString();
+//
+//        Intent intent = new Intent(Intent.ACTION_SEND);
+//        intent.putExtra(Intent.EXTRA_EMAIL, recipient);
+//        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+//        intent.putExtra(Intent.EXTRA_TEXT, message);
+//
+//        intent.setType("message/rfc822");
+//        startActivity(Intent.createChooser(intent, "Choose an email client"));
+//    }
+
+//send email from inside application
+    private void sendMessage() {
+        final ProgressDialog dialog = new ProgressDialog(ComplainActivity.this);
+        final String subject = subject_text.getText().toString();
+        final String text = complain.getText().toString();
+
+        if (subject.equals("") || text.equals("")) {
+            Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            dialog.setTitle("Sending Email");
+            dialog.setMessage("Sending Complaint/Compliment to SuperUser. \n Thank you for your feedback.");
+            dialog.show();
+            final Handler handler = new Handler();
+            Thread sender = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        GmailSender sender = new GmailSender("email", "password"); //require email login info thus empty for security reasons
+                        sender.sendMail(subject,
+                                text,
+                                "email",
+                                "support@idk.com");
+                        handler.postDelayed(new Runnable() {
+                            public void run() {
+                                dialog.dismiss();
+                            }
+                        }, 1000);
+                    } catch (Exception e) {
+                        Log.e("mylog", "Error: " + e.getMessage());
+                    }
+                }
+            });
+            sender.start();
+            openComplainActivity();
+        }
+    }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
+    }
+
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
     private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {
@@ -69,7 +156,7 @@ public class ComplainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {

@@ -1,20 +1,37 @@
 package com.example.csc322project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 
 public class BrowseActivity extends AppCompatActivity {
-    Spinner spinner;
+    Spinner spinner, spinner2;
+    ViewPager projects, users;
+    Button group;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
         spinner = (Spinner) findViewById(R.id.spinner);
+        spinner2 = findViewById(R.id.spinner2);
+        spinner2.setVisibility(View.GONE);
+        group = findViewById(R.id.group);
+        group.setVisibility(View.GONE);
+        projects=(ViewPager) findViewById(R.id.all_projects);
+        SliderAdapter sliderAdapter = new SliderAdapter(this);
+        projects.setAdapter(sliderAdapter);
+
+        users = (ViewPager) findViewById(R.id.all_users);
+        allUsersAdapter userPagerAdapter = new allUsersAdapter(this);
+        users.setAdapter(userPagerAdapter);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
@@ -37,8 +54,13 @@ public class BrowseActivity extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
+                        openTodoActivity();
+                        break;
+                    case 8:
                         openHomeActivity();
                         break;
+                    case 9:
+                        openLogoutActivity();
                     default:
                         return;
 
@@ -52,8 +74,18 @@ public class BrowseActivity extends AppCompatActivity {
             }
         });
     }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
+    }
+
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
     private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {
@@ -69,7 +101,7 @@ public class BrowseActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {

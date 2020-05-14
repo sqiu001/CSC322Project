@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 
 public class VoteActivity extends AppCompatActivity {
@@ -32,12 +33,18 @@ public class VoteActivity extends AppCompatActivity {
                         openGroupActivity();
                         break;
                     case 5:
+                        openScheduleActivity();
                         break;
                     case 6:
-                        openVoteActivity();
                         break;
                     case 7:
+                        openTodoActivity();
+                        break;
+                    case 8:
                         openHomeActivity();
+                        break;
+                    case 9:
+                        openLogoutActivity();
                         break;
                     default:
                         return;
@@ -51,9 +58,50 @@ public class VoteActivity extends AppCompatActivity {
 
             }
         });
+
+        Button myButton1 = findViewById(R.id.button1);
+        myButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(VoteActivity.this,VoteSuper.class);
+                startActivity(intent);
+
+            }
+        });
+        Button myButton2 = findViewById(R.id.button2);
+        myButton2.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VoteActivity.this, VoteVIP.class));
+            }
+        });
+        Button myButton3 = findViewById(R.id.button3);
+        myButton3.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VoteActivity.this, GroupFeedbackActivity.class));
+            }
+        });
+
+        Button myButton4 = findViewById(R.id.button4);
+        myButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(VoteActivity.this, VoteProject.class));
+            }
+        });
+
     }
+
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
+
     private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {
@@ -69,7 +117,7 @@ public class VoteActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {
@@ -78,6 +126,14 @@ public class VoteActivity extends AppCompatActivity {
     }
     private void openVoteActivity(){
         Intent intent = new Intent(this,VoteActivity.class);
+        startActivity(intent);
+    }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
+    }
+    private void openGroupFeedbackActivity() {
+        Intent intent = new Intent(this,GroupFeedbackActivity.class);
         startActivity(intent);
     }
 

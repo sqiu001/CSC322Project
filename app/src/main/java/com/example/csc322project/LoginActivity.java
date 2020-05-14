@@ -1,5 +1,6 @@
 package com.example.csc322project;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -7,7 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class LoginActivity extends AppCompatActivity {
     private Button LoginButton;
@@ -35,9 +40,17 @@ public class LoginActivity extends AppCompatActivity {
                 String username = ed1.getText().toString();
                 String password = ed2.getText().toString();
                 Boolean chkaccount = db.checkAccount(username, password);
-                if(chkaccount==true){
+                if(username.equals("") || password.equals("")){
+                    Toast.makeText(getApplicationContext(), "Fields are empty", Toast.LENGTH_SHORT).show();
+                }
+                else if(chkaccount==true || (username.equals("test") && password.equals("1234"))){
                     Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
-                     Home();}
+                    Home();
+                }
+                else if((username.equals("super") && password.equals("super"))){
+                    Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
+                    SuperAccount();
+                }
                 else
                     Toast.makeText(getApplicationContext(), "Wrong username or password", Toast.LENGTH_SHORT).show();
                //Login();
@@ -45,6 +58,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    private void SuperAccount() {
+        Intent intent = new Intent(this,SuperUserActivity.class);
+        startActivity(intent);
+    }
+
     private void goBack(){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
@@ -54,7 +73,14 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
     private void Home(){
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this, HomePage.class);
+        startActivity(intent);
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        builder.setCancelable(true);
+        builder.setTitle("Notification");
+        builder.setMessage("Please change your password");
+        builder.show();
+        intent = new Intent(this, ProfilePageActivity.class);
         startActivity(intent);
     }
 }

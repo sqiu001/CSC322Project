@@ -6,14 +6,57 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class Schedule extends AppCompatActivity {
+//    private static final String TAG = "Schedule";
+    private TextView theDate, meeting;
+    private EditText theMeeting;
+    private Button btnGoCalendar, btnSave;
     Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_schedule);
+        theDate = (TextView) findViewById(R.id.view_date);
+        theMeeting = (EditText) findViewById(R.id.meeting);
+        meeting = (TextView) findViewById(R.id.display_meeting);
+//        btnPoll = findViewById(R.id.btnpoll);
+//        btnPoll.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openPollActivity();
+//            }
+//        });
+        btnSave = findViewById(R.id.save_meeting);
+        btnSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String text = theMeeting.getText().toString();
+                meeting.setText(text);
+            }
+        });
+//        btnRecord = findViewById(R.id.recordbtn);
+//        btnRecord.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openRecordActivity();
+//            }
+//        });
+        btnGoCalendar = findViewById(R.id.btnDate);
+        Intent IncomingIntent = getIntent();
+        String date = IncomingIntent.getStringExtra("date");
+        theDate.setText(date);
+        btnGoCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Schedule.this, CalendarActivity.class);
+                startActivity(intent);
+            }
+        });
         spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -37,23 +80,31 @@ public class Schedule extends AppCompatActivity {
                         openVoteActivity();
                         break;
                     case 7:
+                        openTodoActivity();
+                        break;
+                    case 8:
                         openHomeActivity();
                         break;
+                    case 9:
+                        openLogoutActivity();
                     default:
                         return;
 
                 }
 
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
         });
     }
+    private void openLogoutActivity() {
+        Intent intent = new Intent(this,LoginActivity.class);
+        startActivity(intent);
+    }
     private void openHomeActivity() {
-        Intent intent = new Intent(this,Home_Page.class);
+        Intent intent = new Intent(this, HomePage.class);
         startActivity(intent);
     }
     private void openBrowseActivity() {
@@ -69,7 +120,7 @@ public class Schedule extends AppCompatActivity {
         startActivity(intent);
     }
     private void openGroupActivity() {
-        Intent intent = new Intent(this,GroupActivity.class);
+        Intent intent = new Intent(this,GroupPageActivity.class);
         startActivity(intent);
     }
     private void openScheduleActivity() {
@@ -80,4 +131,17 @@ public class Schedule extends AppCompatActivity {
         Intent intent = new Intent(this,VoteActivity.class);
         startActivity(intent);
     }
+    private void openTodoActivity() {
+        Intent intent = new Intent(this,todoActivity.class);
+        startActivity(intent);
+    }
+    private void openPollActivity() {
+        Intent intent = new Intent(this,pollActivity.class);
+        startActivity(intent);
+    }
+    private void openRecordActivity() {
+        Intent intent = new Intent(this,recordActivity.class);
+        startActivity(intent);
+    }
+
 }

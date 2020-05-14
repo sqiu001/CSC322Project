@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient">
 
     <TextView
         android:id="@+id/textWelcome"
@@ -9,7 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Welcome Visitor"
-        android:textColor="#0A46E1"
+        android:fontFamily="sans-serif-light"
+        android:textColor="#5324FF"
+        android:textStyle="bold"
         android:textSize="50dp" />
 
     <Button
@@ -20,7 +23,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginVertical="100dp"
         android:text="Continue as Visitor"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:background="@drawable/rounded_rectangle"
+        android:fontFamily="sans-serif-medium"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnRegisterActivity"
@@ -29,6 +37,11 @@
         android:layout_below="@+id/btnContinue"
         android:layout_centerHorizontal="true"
         android:text="Register"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:background="@drawable/rounded_rectangle"
+        android:fontFamily="sans-serif-medium"
+        android:padding="16dp"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
 
 </RelativeLayout>
