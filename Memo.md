@@ -39,3 +39,9 @@
 * OUs can send compliment about other OUs to SU, and SU will increase the reputation score of the complimented OU, any OU receiving 3 compliments, regardless of the reputation score.
   * The registered user can head to the “Complain/Compliment” page via the menu where they enter the subject (e.g. I want to compliment User1) and the body (e.g. User1 is very helpful and responsible) which will be sent to SU as an email where they will decide whether to increase the complimented/complained about user reputation score.
 
+> Additional Feature #1: the user can access the "Todo" page via the menu where the user can keep track of the tasks they themselves need to do. And by holding onto a certain task, the task is then removed indicating that they have completed the task
+
+> Additional Feature #2: users and visitors have the option of sending feedback via email about improvements or suggestions they have about the application. This is accessed via the "Feedback" button on the home page. 
+
+> Additional Feature #3 (can go with scheduling): the users can remind themselves of meetings they have coming up via the "Schedule" tab from the menu. In there the user, can select a date via the button which will display a calendar for them to choose the date and then display it along with the reason for the meeting.
+
