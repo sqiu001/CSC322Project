@@ -6,6 +6,7 @@
   * A visitor can click on “Register” in the app and create an account after adding their name, email, interest, credential, and reference.
   * The visitor gets a notification message the super user will review the application if the submission of the form is successful. 
   * When the new OU logs in with the account given, they get a notification to change their password. The visitor can re-register if rejected.
+  * The super user logins and from there, they can access the users who registered via the button "Registration" where they can choose to either accept or reject the user's application.
 
 * OUs can form groups by inviting other OU(s) for a certain purpose: the other OUs can accept or reject the invite. If reject, the OU should respond by the reason. An OU can put some OUs to his/her white-box: accept all invites or black-box: reject all invites with automatic message. For instance, the group could be some students taking 32200 as a study group.
   * The user has the option to select “Invite” via the menu which will redirect them to a page listing all the registered users. They then can click the “Option” button which will redirect them to a page where they can either invite a user or place a user into their blackbox or whitebox and have it displayed. If a user is in the blackbox then they can’t be added to the whitebox and vice versa. Furthermore, if the user tries to invite a user that has placed them into the blackbox they will automatically receive the message “Invitation Declined”. On the other hand, if they are in the whitebox, they receive the message “Invitation Accepted”, else they receive “Invitation Sent” so long as the user exists.
@@ -27,7 +28,7 @@
   * Users can go to the “vote” page and vote for a user to add or remove points from their reputation. VIPs can vote for a democratic super user by clicking on “super user” on the vote page.
   
 * Visitors and OUs can complain to SU about a group or other OUs, the SU will decide if the complaint merit action. The SU can decide to shut down the group or OU and punish all involved by a certain score deduction or even kick them out from the entire system.
-  * Visitors can complain to the SU or send a compliment about any member or any group on the “complain/compliment page”. The super user can decide what to do based on the feedback.
+  * Visitors can complain to the SU or send a compliment about any member or any group on the “complain/compliment page”. The super user can decide what to do based on the feedback. Once the super user login, they will see a list of all the users registered and by clicking on the user, they will be removed from the system and the message "Sent Email notifying user of removal" pops up. 
 
 * OUs who are kicked out will have the final chance to login and do some final processing and will be unable to login ever after.
   * Once the user’s privileges are gone and their credentials are no longer valid, they cannot login into the system.
