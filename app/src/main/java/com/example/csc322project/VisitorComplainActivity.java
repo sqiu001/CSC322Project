@@ -97,6 +97,7 @@ public class VisitorComplainActivity extends AppCompatActivity {
                 }
             });
             sender.start();
+            openComplainActivity();
         }
     }
 
@@ -111,6 +112,10 @@ public class VisitorComplainActivity extends AppCompatActivity {
     }
     private void openBrowseActivity() {
         Intent intent = new Intent(this,VisitorBrowseActivity.class);
+        startActivity(intent);
+    }
+    private void openComplainActivity() {
+        Intent intent = new Intent(this,VisitorComplainActivity.class);
         startActivity(intent);
     }
 

@@ -17,7 +17,7 @@ import java.util.ArrayList;
 public class SuperUserActivity extends AppCompatActivity {
     ListView lv;
     ArrayList<String> mylist = new ArrayList<>();
-    Button registration;
+    Button registration, logout;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +49,14 @@ public class SuperUserActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), Registration.class);
+                startActivity(intent);
+            }
+        });
+        logout = findViewById(R.id.logout);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
             }
         });
