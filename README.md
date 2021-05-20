@@ -56,7 +56,7 @@ A step by step series of that tell you how to get a development env running
 1. Super User (Username: super, Password: super)
 2. Ordinary User (Username: test, Password: 1234)
 ## Demo
-<img src="" width="200" title="Registered Users"/> <img src="visitor.gif" width="200" title="Visitors"/> <img src="super.gif" width="200" title="Super User"/> 
+<img src="test.gif" width="200" title="Registered Users"/> <img src="visitor.gif" width="200" title="Visitors"/> <img src="super.gif" width="200" title="Super User"/> 
 
 ## Authors
 * [Sandy Qiu](https://github.com/sqiu001)
